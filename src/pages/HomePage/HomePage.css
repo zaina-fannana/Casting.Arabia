@@ -1,0 +1,68 @@
+div.TalentClass {
+    display: flex;
+    background-color: white;
+    border-radius: 24px;
+    padding: 24px 56px;
+    margin-top: 30px;
+    width: 1300px;
+    margin-left: 17px;
+}
+video.videoTalent{
+    border-radius: 24px;
+    width: 350px;
+    height: 200px;
+}
+p.MuiTypography-root.MuiTypography-body1.mui-rtl-1ulheli  {
+    margin: 0px;
+    font-family: "Segoe UI", Helvetica, Tahoma, Geneva, Verdana, Arial, sans-serif;
+    line-height: 1.3;
+    color: rgb(99, 113, 224);
+    font-size: 26px;
+    font-weight: 700;
+    text-align: end;
+    margin-right: 35px;
+}
+.mui-rtl-1u6oyw1 {
+    margin: 8px 0px 0px;
+    font-family: "Segoe UI", Helvetica, Tahoma, Geneva, Verdana, Arial, sans-serif;
+    font-weight: 400;
+    color: rgb(62, 77, 177);
+    font-size: 16px;
+    line-height: 1.6;
+    text-align: end;
+    margin-right: 35px;
+
+}
+.mui-rtl-1dyuov1 {
+    margin: 0px;
+    font-family: "Segoe UI", Helvetica, Tahoma, Geneva, Verdana, Arial, sans-serif;
+    font-weight: 400;
+    line-height: 1.3;
+    font-size: 16px;
+    
+}
+.mui-rtl-9h8kyx {
+    border: 0px;
+    margin: 24px 0px 0px;
+    cursor: pointer;
+    border-radius: 8px;
+    color: rgb(255, 255, 255);
+    background-color: rgb(99, 113, 224);
+    padding: 12px 32px;
+    margin-left: 760px;
+
+}
+div.HiredAProjectClass {
+    display: flex;
+    background-color: white;
+    border-radius: 24px;
+    padding: 24px 56px;
+    margin-top: 30px;
+    width: 1300px;
+    margin-left: 17px;
+}
+video.HiredProject{
+    border-radius: 24px;
+    width: 350px;
+    height: 200px;
+}
