@@ -5,10 +5,10 @@ import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import LearningCenterData from "../../../mock/LearningCenterData";
 import "swiper/css";
 import "swiper/css/navigation";
 import "./styles.css";
+import LearningCenterData from "../../../mock/LearningCenterData";
 
 export default function App() {
   const [swiperRef, setSwiperRef] = useState(null);
@@ -17,41 +17,54 @@ export default function App() {
 
   return (
     <>
-      <div id="Learning-Center" className="LearningSection">
-        <div className="LearningSection">
-          <h2 className="LearningTitle">مركز التعلم</h2>
+      <div id="News" className="NewsSection">
+        <div className="NewsSection">
+          <h2 className="NewsTitle">مركز التعلم</h2>
           <Swiper
             modules={[Virtual, Navigation]}
             onSwiper={setSwiperRef}
-            spaceBetween={0}
+            spaceBetween={16}
             navigation={true}
-            slidesPerView={3}
+            pagination={{ clickable: true }}
+            slidesPerView={4}
             virtual
+            style={{marginTop:-39}}
           >
-            {LearningCenter.map((LearningCenter) => (
-              <SwiperSlide
-                key={LearningCenter.id}
-                virtualIndex={LearningCenter.id}
-              >
-                <div className="slide-wrapper">
-                  <div className="Laerning-container">
-                    <Card>
-                      <CardMedia
-                        component="img"
-                        alt="Learning Center Image"
-                        image={LearningCenter.image}
-                      />
-                      <CardContent>
-                        <Typography variant="body2" color="text.secondary">
-                          {LearningCenter.description}
-                        </Typography>
-                      </CardContent>
-                    </Card>
-                  </div>
-                </div>
+            {LearningCenter.map((learningItem) => (
+              <SwiperSlide key={learningItem.id} virtualIndex={learningItem.id}>
+                <Card sx={{ maxWidth: 345, boxShadow: "none" }}>
+                  {" "}
+                  <CardMedia
+                    component="img"
+                    alt="News Image"
+                    height="140"
+                    image={learningItem.image}
+                  />
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" component="div">
+                      {learningItem.title}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {learningItem.description}
+                    </Typography>
+                  </CardContent>
+                </Card>
               </SwiperSlide>
             ))}
           </Swiper>
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <div className="MuiBox-root mui-rtl-nb25bq">
+              <button
+                className="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeLarge MuiButton-outlinedSizeLarge MuiButton-disableElevation MuiButtonBase-root mui-rtl-dwgqy6"
+                tabIndex="0"
+                type="button"
+              >
+                عرض أكثر
+                <span className="MuiTouchRipple-root mui-rtl-w0pj6f"></span>
+              </button>
+            </div>
+          </div>
+          <> ︎ ︎ ︎ </>
         </div>
       </div>
     </>

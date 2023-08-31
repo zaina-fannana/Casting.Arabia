@@ -61,7 +61,7 @@ function Header() {
             sx={{
               borderRadius: 2,
               color: "#fff",
-              fontSize: 18,
+              fontSize: 16,
               fontWeight: 400,
               background: "#6371E0 !important",
               fontFamily: "Segoe UI",
@@ -75,7 +75,7 @@ function Header() {
             onClick={openPostingOpportunity}
             sx={{
               color: "#6371E0",
-              fontSize: 18,
+              fontSize: 16,
               fontWeight: 400,
               fontFamily: "Segoe UI",
             }}
@@ -86,7 +86,7 @@ function Header() {
             onClick={openLoginPage}
             sx={{
               color: "#6371E0",
-              fontSize: 18,
+              fontSize: 16,
               fontWeight: 400,
               textTransform: "unset",
               fontFamily: "Segoe UI",
@@ -97,7 +97,7 @@ function Header() {
           <Button
             sx={{
               color: "#6371E0",
-              fontSize: 18,
+              fontSize: 16,
               fontWeight: 400,
               textTransform: "unset",
               fontFamily: "Segoe UI",
@@ -123,7 +123,7 @@ function Header() {
                   my: 2,
                   color: "#6371E0",
                   display: "block",
-                  fontSize: 18,
+                  fontSize: 16,
                   fontWeight: 400,
                   textTransform: "unset",
                   fontFamily: "Segoe UI",
@@ -137,7 +137,7 @@ function Header() {
             <Typography
               variant="h6"
               noWrap
-              component="button"
+              component="div"
               sx={{
                 mr: 2,
                 display: { xs: "none", md: "flex" },

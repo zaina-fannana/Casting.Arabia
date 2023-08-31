@@ -23,32 +23,48 @@ export default function App() {
           <Swiper
             modules={[Virtual, Navigation]}
             onSwiper={setSwiperRef}
-            spaceBetween={0}
+            spaceBetween={16}
             navigation={true}
-            slidesPerView={3}
+            pagination={{ clickable: true }}
+            slidesPerView={4}
             virtual
+            style={{marginTop:-39}}
           >
-            {News.map((News) => (
-              <SwiperSlide key={News.id} virtualIndex={News.id}>
-                <div className="slide-wrapper">
-                  <div className="News-container">
-                    <Card>
-                      <CardMedia
-                        component="img"
-                        alt="News Image"
-                        image={News.image}
-                      />
-                      <CardContent>
-                        <Typography variant="body2" color="text.secondary">
-                          {News.description}
-                        </Typography>
-                      </CardContent>
-                    </Card>
-                  </div>
-                </div>
+            {News.map((newsItem) => (
+              <SwiperSlide key={newsItem.id} virtualIndex={newsItem.id}>
+                <Card sx={{ maxWidth: 345, boxShadow: "none" }}>
+                  {" "}
+                  <CardMedia
+                    component="img"
+                    alt="News Image"
+                    height="140"
+                    image={newsItem.image}
+                  />
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" component="div">
+                      {newsItem.title}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {newsItem.description}
+                    </Typography>
+                  </CardContent>
+                </Card>
               </SwiperSlide>
             ))}
           </Swiper>
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <div className="MuiBox-root mui-rtl-nb25bq">
+              <button
+                className="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeLarge MuiButton-outlinedSizeLarge MuiButton-disableElevation MuiButtonBase-root mui-rtl-dwgqy6"
+                tabIndex="0"
+                type="button"
+              >
+                عرض أكثر
+                <span className="MuiTouchRipple-root mui-rtl-w0pj6f"></span>
+              </button>
+            </div>
+          </div>
+          <> ︎ ︎ ︎ </>
         </div>
       </div>
     </>

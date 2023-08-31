@@ -14,6 +14,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import IconButton from "@mui/material/IconButton";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
+// import { makeStyles } from "@mui/material";
 
 const top100Films = [
   ,
@@ -28,8 +29,18 @@ const top100Films = [
   "غيره",
 ];
 
+// const useStyles = makeStyles((theme) => ({
+//   input: {
+//     "&::placeholder": {
+//       color: "red",
+//       textAlign: "right",
+//     },
+//   },
+// }));
+
 const topGender = ["ذكر", "أنثي", "---"];
 function PostingOpportunity({ onClose }) {
+  // const classes = useStyles();
   const [selectedOption, setSelectedOption] = useState(" ");
 
   const [value, setValue] = useState(top100Films[0]);
@@ -171,6 +182,16 @@ function PostingOpportunity({ onClose }) {
                   variant="outlined"
                   fullWidth
                   className="TalentInput"
+                  // InputProps={{
+                  //   classes: {
+                  //     input: {
+                  //       "&::placeholder": {
+                  //         color: "red",
+                  //         textAlign: "right",
+                  //       },
+                  //     },
+                  //   },
+                  // }}
                 />
               </div>
 

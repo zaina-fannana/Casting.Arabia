@@ -53,7 +53,6 @@ const LoginPage = ({ open, onClose }) => {
   const handleClose = () => {
     onClose();
   };
-
   return (
     <Dialog
       className="LoganSection"
@@ -79,7 +78,7 @@ const LoginPage = ({ open, onClose }) => {
         style={{
           textAlign: "center",
           color: "#262E3B",
-          fontSize: "1rem",
+          fontSize: "25px",
           fontFamily: "Segoe UI",
           fontWeight: 400,
         }}
@@ -91,22 +90,24 @@ const LoginPage = ({ open, onClose }) => {
         <HomePage onClose={handleClose} />
       ) : (
         <DialogContent style={{ textAlign: "center" }}>
-          <div className="UserName">
+          <div className="email">
             <br />
             <input
               type="text"
               {...username}
               autoComplete="new-password"
-              placeholder="اسم المستخدم"
+              placeholder="الايميل"
               style={{
                 color: "currentColor",
                 textAlign: "end",
                 letterSpacing: "inherit",
-                font: "inherit",
+                // font: "inherit",
                 padding: "4 0 5",
-                padding: 10,
+                padding: 15,
                 width: 355,
                 borderRadius: 7,
+                borderColor: "#0000003b",
+                fontFamily: "Segoe UI",
               }}
             />
           </div>
@@ -121,11 +122,13 @@ const LoginPage = ({ open, onClose }) => {
                 color: "currentColor",
                 textAlign: "end",
                 letterSpacing: "inherit",
-                font: "inherit",
+                // font: "inherit",
                 padding: "4 0 5",
-                padding: 10,
+                padding: 15,
                 width: 355,
                 borderRadius: 7,
+                borderColor: "#0000003b",
+                fontFamily: "Segoe UI",
               }}
             />
           </div>
@@ -146,6 +149,7 @@ const LoginPage = ({ open, onClose }) => {
               textTransform: "unset",
               fontFamily: "Segoe UI",
               marginLeft: "auto",
+              marginTop: 0,
             }}
           >
             نسيت كلمة المرور

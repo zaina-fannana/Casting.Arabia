@@ -17,61 +17,70 @@ export default function App() {
   const appendNumber = useRef(8);
   const prependNumber = useRef(1);
 
-  const opportunities = OpportunitiesData;
+  const Opportunities = OpportunitiesData;
 
   return (
-    <>
-      <div id="Opportunities" className="OpportunitiesSection">
-        <div className="OpportunitiesSection">
-          <h2 className="OppTitle" style={{ marginTop: 20 }}>
+    <div id="Opportunities" className="OpportunitiesSection">
+      <div className="OpportunitiesSection">
+        <div className="OppTitle0">
+          <h2 className="OppTitle">
             الفرص
           </h2>
-          <Swiper
-            modules={[Virtual, Navigation]}
-            onSwiper={setSwiperRef}
-            spaceBetween={0}
-            navigation={true}
-            slidesPerView={3}
-            virtual
-          >
-            {opportunities.map((opportunity) => (
-              <SwiperSlide key={opportunity.id} virtualIndex={opportunity.id}>
-                <div className="slide-wrapper">
-                  <div className="opportunities-container">
-                    <Card>
-                      <CardMedia
-                        component="img"
-                        src={opportunity.image}
-                        alt="Opportunity Image"
-                        image={opportunity.image}
-                        className="opportunity-image"
-                      />
-
-                      <CardContent>
-                        <Typography gutterBottom variant="h5" component="div">
-                          {opportunity.title}
-                        </Typography>
-                        <Typography variant="body2" color="text.secondary">
-                          {opportunity.description}
-                        </Typography>
-                      </CardContent>
-                      <CardActions>
-                        <Button
-                          size="small"
-                          style={{ background: "#e5fff2", color: "#30b06f" }}
-                        >
-                          مدفوع
-                        </Button>
-                        <Button size="small">دور واحد</Button>
-                      </CardActions>
-                    </Card>
-                  </div>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
         </div>
+        <Swiper
+          modules={[Virtual, Navigation, Pagination]}
+          onSwiper={setSwiperRef}
+          spaceBetween={16}
+          navigation={true}
+          pagination={{ clickable: true }}
+          slidesPerView={4}
+          virtual
+        >
+          {Opportunities.map((opportunity) => (
+            <SwiperSlide key={opportunity.id} virtualIndex={opportunity.id}>
+              <Card sx={{ maxWidth: 345, boxShadow: "none" }}>
+                {" "}
+                <CardMedia
+                  component="img"
+                  alt="Opportunity Image"
+                  height="140"
+                  image={opportunity.image}
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div">
+                    {opportunity.title}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    {opportunity.description}
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <Button
+                    size="small"
+                    style={{ background: "#e5fff2", color: "#30b06f" }}
+                  >
+                    مدفوع
+                  </Button>
+                  <Button size="small">دور واحد</Button>
+                </CardActions>
+              </Card>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <div className="MuiBox-root mui-rtl-nb25bq">
+            <button
+              className="MuiButton-root MuiButton-outlined MuiButton-outlinedPrimary MuiButton-sizeLarge MuiButton-outlinedSizeLarge MuiButton-disableElevation MuiButtonBase-root mui-rtl-dwgqy6"
+              tabIndex="0"
+              type="button"
+            >
+              عرض أكثر
+              <span className="MuiTouchRipple-root mui-rtl-w0pj6f"></span>
+            </button>
+          </div>
+        </div>
+        <> ︎ ︎ ︎ ︎ ︎ ︎</>
       </div>
-    </>
+    </div>
   );
 }
