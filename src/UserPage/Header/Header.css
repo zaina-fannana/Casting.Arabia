@@ -1,0 +1,29 @@
+.icon-container {
+  display: flex;
+}
+.hover-icon-container {
+  position: relative;
+  margin-right: 20px;
+  cursor: pointer;
+}
+.tooltip {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  color: #fff;
+  padding: 4px;
+  font-size: 12px;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  background-color: #757575;
+  border-radius: 5px;
+}
+.hover-icon-container:hover .tooltip {
+  opacity: 1;
+}
+svg.MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium.css-i4bv87-MuiSvgIcon-root {
+  font-size: xx-large;
+}

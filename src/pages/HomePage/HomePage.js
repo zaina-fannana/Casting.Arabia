@@ -8,28 +8,30 @@ const HomePage = () => {
   return (
     <Layout>
       <div className="TalentClass">
-        <div className="MuiBox-root mui-rtl-6rehta">
+        <div
+          className="MuiBox-root mui-rtl-6rehta"
+          style={{ marginLeft: "inherit" }}
+        >
           <p className="MuiTypography-root MuiTypography-body1 mui-rtl-1ulheli">
-            هل لديك موهبة؟
+            ? Are you a Talent{" "}
           </p>
           <p className="MuiTypography-root MuiTypography-body1 mui-rtl-1u6oyw1">
-            هل تحب التمثيل، أو الغناء، أو الرقص، أو عرض الأزياء، أو الكتابة، أو
-            أي من الوظائف الأخرى الخاصة بالمجال الأداء الفني؟ إذا كان الأمر
-            كذلك، فقد وصلت إلى موقع صُمم خصيصاً لك. شاهد هذا الفيديو ثم انضم
-            كموهبة لتفتح لك آفاق من فرص العمل.
+            Do you love to act, sing, dance, model, write, or other jobs in
+            entertainment? If so, you’ve come to the right place. Watch this
+            video and sign up to apply for opportunities
           </p>
           <button
-            className="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButtonBase-root  mui-rtl-9h8kyx"
-            // tabindex="0"
+            className="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButtonBase-root mui-rtl-9h8kyx"
+            style={{ textAlign: "right", marginRight: 762, marginTop: 30 }}
             type="button"
           >
             <p className="MuiTypography-root MuiTypography-body1 mui-rtl-1dyuov1">
-              انضم كموهبة
+              Join as TALENT{" "}
             </p>
             <span className="MuiTouchRipple-root mui-rtl-w0pj6f"></span>
           </button>
         </div>
-        <video className="videoTalent">
+        <video className="videoTalent" controls autoPlay loop>
           <source
             src="https://casting-arabia-uploads.s3.us-east-2.amazonaws.com/videos/talent.mp4"
             type="video/mp4"
@@ -38,7 +40,8 @@ const HomePage = () => {
       </div>
 
       <div className="HiredAProjectClass">
-        <video className="HiredProject">
+        {" "}
+        <video className="HiredProject" controls autoPlay loop>
           <source
             src="https://casting-arabia-uploads.s3.us-east-2.amazonaws.com/videos/seeker.mp4"
             type="video/mp4"
@@ -46,21 +49,21 @@ const HomePage = () => {
         </video>
         <div className="MuiBox-root mui-rtl-r973jf">
           <p className="MuiTypography-root MuiTypography-body1 mui-rtl-1ulheli">
-            هل توظف لمشروع؟
+            ? Are you hiring for a project{" "}
           </p>
           <p className="MuiTypography-root MuiTypography-body1 mui-rtl-1u6oyw1">
-            هل تبحث عن ممثلين، أو مغنيين، أو راقصين، أو كتاب، أو طاقم تصوير، أو
-            موهوبين آخرين لمشروعك القادم؟ أنشأت كاستينج أريبيا لمساعدتك. شاهد
-            هذا الفيديو وانضم كصانع فرصة لتنشر فرصتك التالية.
+            Are you looking for talented actors, singers, dancers, writers, and
+            camera crew for your next project? Casting Arabia can help you.
+            Watch this video and click below to register and post your next
+            opportunity
           </p>
           <button
-            className="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButtonBase-root  mui-rtl-9h8kyx"
-            // tabindex="0"
-            style={{ marginLeft: 728 }}
+            className="MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-disableElevation MuiButtonBase-root mui-rtl-9h8kyx"
+            style={{ textAlign: "right", marginRight: 782, marginTop: 30 }} // Align button to the right and add margin to the right
             type="button"
           >
             <p className="MuiTypography-root MuiTypography-body1 mui-rtl-1dyuov1">
-              انضم كصانع فرصة
+              Join as SEEKER{" "}
             </p>
             <span className="MuiTouchRipple-root mui-rtl-w0pj6f"></span>
           </button>

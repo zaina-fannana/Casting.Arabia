@@ -5,7 +5,6 @@ import DialogContent from "@mui/material/DialogContent";
 import Button from "@mui/material/Button";
 import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
-import "./PostingOpportunity.css";
 import Box from "@mui/material/Box";
 import FormControl from "@mui/material/FormControl";
 import InputLabel from "@mui/material/InputLabel";
@@ -14,33 +13,22 @@ import InputAdornment from "@mui/material/InputAdornment";
 import IconButton from "@mui/material/IconButton";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
-// import { makeStyles } from "@mui/material";
-
+import "./PostingOpportunity.css";
 const top100Films = [
   ,
-  "ممثل",
-  "مغنى",
-  "عارض/عارضة أزياء",
-  "مقدم /مقدمة برامج",
-  "موسيقى",
-  "طاقم التصوير",
-  "كاتب",
-  "راقص",
-  "غيره",
+  "Actor",
+  "Singer",
+  "Model",
+  "Host/hostess",
+  "Musician",
+  "staff",
+  "Writer",
+  "Dancer",
+  "Other",
 ];
 
-// const useStyles = makeStyles((theme) => ({
-//   input: {
-//     "&::placeholder": {
-//       color: "red",
-//       textAlign: "right",
-//     },
-//   },
-// }));
-
-const topGender = ["ذكر", "أنثي", "---"];
+const topGender = ["Male", "Female", "---"];
 function PostingOpportunity({ onClose }) {
-  // const classes = useStyles();
   const [selectedOption, setSelectedOption] = useState(" ");
 
   const [value, setValue] = useState(top100Films[0]);
@@ -111,7 +99,7 @@ function PostingOpportunity({ onClose }) {
           marginTop: 10,
         }}
       >
-        انضم إلى كاستينج أريبيا
+        Join Casting Arabia
         <Button
           onClick={handleClose}
           sx={{
@@ -125,44 +113,47 @@ function PostingOpportunity({ onClose }) {
         <p className="OpportunityPublicationParagraph">
           <DialogContent>
             <p className="OpportunityPublicationParagraph">
-              خطوات قليلة بينك وبين التقديم على فرصتك وفرص أخرى حصرية على
-              منصتنا! يرجى تعبئة طلب التسجيل أدناه. نظراً للعدد الكبير من
-              الطلبات المرسلة، سيتم قبول عدد محدود منها في المرحلة الأولى لإكمال
-              الملف الشخصي. وسيتم إعلامكم عندما نصل إلى طلبكم لتقوموا بإنشاء
-              ملفّكم الشخصي الخصوصي على المنصة لتُفتح لكم آفاق وفرص جديدة
-              مجاناً!
+              You are only a few steps away from applying to the exclusive
+              opportunities on our platform! Please fill out the below form.Due
+              to the large number of applications that we have received, we will
+              approve a limited number of accounts during the first registration
+              phase. You will be notified when it is your turn to complete your
+              profile, apply for new opportunities, and take your talent to a !
+              whole new level … all free of charge
             </p>
             <button
               className="QuestionOpportunity"
               tabIndex={0}
               type="button"
-              aria-label="   صانعوا الفرص التي قمت بتقديم طلبك لهم هم الوحيدون الذين يمكنهم الاطلاع على ملفك الشخصي"
+              aria-label="Only the Talent Seeker who has posted the opportunity that you  have applied to can see your profile."
             >
-              من يمكنه الاطلاع على ملّفي الشخصي على كاستينج أريبيا؟{" "}
+              ? Who can view my profile on Casting Arabia{" "}
               <span className="MuiTouchRipple-root mui-rtl-w0pj6f"></span>
             </button>
-            <h3 className="me">:أنا</h3>
+            <h3 className="me" style={{ fontWeight: 500 }}>
+              : I am a{" "}
+            </h3>
           </DialogContent>{" "}
         </p>
         <div className="OpportunityPostSection">
           <div className="ChooseAnOption">
-            <label className="opportunityMaker">
+            <label className="talent">
               <input
                 type="radio"
                 value="talent"
                 checked={selectedOption === "talent"}
                 onChange={handleOptionChange}
               />
-              صانع فرصة
+              Talent{" "}
             </label>
-            <label className="talent">
+            <label className="opportunityMaker">
               <input
                 type="radio"
                 value="opportunityMaker"
                 checked={selectedOption === "opportunityMaker"}
                 onChange={handleOptionChange}
               />
-              موهبة
+              Talent seeker{" "}
             </label>
           </div>
 
@@ -170,28 +161,18 @@ function PostingOpportunity({ onClose }) {
             <div className="TalentSection">
               <div className="Name" style={{ marginTop: 25 }}>
                 <TextField
-                  label="الاسم الاخير"
+                  label="First Name"
                   variant="outlined"
                   fullWidth
                   className="TalentInput"
+                  dir="ltr"
                 />
-                <> ︎ ︎ ︎ ︎ ︎ ︎</>
-
                 <TextField
-                  label="الاسم الاول"
+                  label="Last Name"
                   variant="outlined"
                   fullWidth
                   className="TalentInput"
-                  // InputProps={{
-                  //   classes: {
-                  //     input: {
-                  //       "&::placeholder": {
-                  //         color: "red",
-                  //         textAlign: "right",
-                  //       },
-                  //     },
-                  //   },
-                  // }}
+                  dir="ltr"
                 />
               </div>
 
@@ -207,9 +188,8 @@ function PostingOpportunity({ onClose }) {
                   }}
                   id="controllable-states-demo"
                   options={top100Films}
-                  sx={{ width: 300 }}
                   renderInput={(params) => (
-                    <TextField {...params} label="نوع الموهبة" />
+                    <TextField {...params} label=" Talent Type ?" dir="ltr" />
                   )}
                 />
               </div>
@@ -226,26 +206,27 @@ function PostingOpportunity({ onClose }) {
                   }}
                   id="controllable-states-demo"
                   options={topGender}
-                  sx={{ width: 300 }}
                   renderInput={(params) => (
-                    <TextField {...params} label="الجنس" />
+                    <TextField {...params} label="Gender" />
                   )}
+                  dir="ltr"
                 />
               </div>
 
               <div className="email" style={{ marginTop: 25 }}>
                 <TextField
-                  label="البريد الالكتروني"
+                  label="Email"
                   variant="outlined"
                   fullWidth
                   className="TalentInput"
+                  dir="ltr"
                 />
               </div>
 
               <div className="SelectCountry" style={{ marginTop: 25 }}>
                 <Autocomplete
                   id="country-select-demo"
-                  sx={{ width: 300 }}
+                  dir="ltr"
                   options={countries}
                   autoHighlight
                   getOptionLabel={(option) => option.label}
@@ -261,7 +242,8 @@ function PostingOpportunity({ onClose }) {
                   renderInput={(params) => (
                     <TextField
                       {...params}
-                      label="الدولة"
+                      label="Country"
+                      dir="ltr"
                       inputProps={{
                         ...params.inputProps,
                         autoComplete: "new-password",
@@ -273,10 +255,11 @@ function PostingOpportunity({ onClose }) {
 
               <div className="PhoneNumber" style={{ marginTop: 25 }}>
                 <TextField
-                  label="رقم الهاتف"
+                  label="Phone Number"
                   variant="outlined"
                   fullWidth
                   className="TalentInput"
+                  dir="ltr"
                 />
               </div>
 
@@ -284,11 +267,13 @@ function PostingOpportunity({ onClose }) {
                 <InputLabel
                   htmlFor="outlined-adornment-password"
                   className="password"
+                  dir="ltr"
                 >
-                  كلمة المرور
+                  Password
                 </InputLabel>
                 <OutlinedInput
                   id="outlined-adornment-password"
+                  dir="ltr"
                   type={showPassword ? "text" : "password"}
                   endAdornment={
                     <InputAdornment position="end">
@@ -297,6 +282,7 @@ function PostingOpportunity({ onClose }) {
                         onClick={handleClickShowPassword}
                         onMouseDown={handleMouseDownPassword}
                         edge="end"
+                        dir="ltr"
                       >
                         {showPassword ? <VisibilityOff /> : <Visibility />}
                       </IconButton>
@@ -310,153 +296,172 @@ function PostingOpportunity({ onClose }) {
 
           {selectedOption === "opportunityMaker" && (
             <div className="TalentSection">
-              <div className="Name" style={{ marginTop: 25 }}>
-                <TextField
-                  label="الاسم الاخير"
-                  variant="outlined"
-                  fullWidth
-                  className="TalentInput"
-                />
-                <> ︎ ︎ ︎ ︎ ︎ ︎</>
+              <div className="TalentSection">
+                <div className="Name" style={{ marginTop: 25 }}>
+                  <TextField
+                    label="First Name"
+                    variant="outlined"
+                    fullWidth
+                    className="TalentInput"
+                    dir="ltr"
+                  />
+                  <TextField
+                    label="Last Name"
+                    variant="outlined"
+                    fullWidth
+                    className="TalentInput"
+                    dir="ltr"
+                  />
+                </div>
 
-                <TextField
-                  label="الاسم الاول"
-                  variant="outlined"
-                  fullWidth
-                  className="TalentInput"
-                />
-              </div>
+                <div className="CompanyName" style={{ marginTop: 25 }}>
+                  <TextField
+                    label="Company Name"
+                    variant="outlined"
+                    fullWidth
+                    className="TalentInput"
+                    dir="ltr"
+                  />
+                </div>
 
-              <div className="CompanyName" style={{ marginTop: 25 }}>
-                <TextField
-                  label="اسم الشركة"
-                  variant="outlined"
-                  fullWidth
-                  className="TalentInput"
-                />
-              </div>
+                <div className="ChooseTalent" style={{ marginTop: 25 }}>
+                  <Autocomplete
+                    value={value}
+                    onChange={(event, newValue) => {
+                      setValue(newValue);
+                    }}
+                    inputValue={inputValue}
+                    onInputChange={(event, newInputValue) => {
+                      setInputValue(newInputValue);
+                    }}
+                    id="controllable-states-demo"
+                    options={top100Films}
+                    // sx={{ width: 300 }}
+                    renderInput={(params) => (
+                      <TextField
+                        {...params}
+                        label=" what talent are you looking for ?"
+                        dir="ltr"
+                      />
+                    )}
+                  />
+                </div>
 
-              <div className="ChooseTalent" style={{ marginTop: 25 }}>
-                <Autocomplete
-                  value={value}
-                  onChange={(event, newValue) => {
-                    setValue(newValue);
-                  }}
-                  inputValue={inputValue}
-                  onInputChange={(event, newInputValue) => {
-                    setInputValue(newInputValue);
-                  }}
-                  id="controllable-states-demo"
-                  options={top100Films}
-                  sx={{ width: 300 }}
-                  renderInput={(params) => (
-                    <TextField
-                      {...params}
-                      label="ما هي الموهبة التي تبحث عنها؟"
-                    />
-                  )}
-                />
-              </div>
+                <div className="Gender" style={{ marginTop: 25 }}>
+                  <Autocomplete
+                    gender={gender}
+                    dir="ltr"
+                    onChange={(event, newGender) => {
+                      setGender(newGender);
+                    }}
+                    inputGender={inputGender}
+                    onInputChange={(event, newInputGender) => {
+                      setInputGender(newInputGender);
+                    }}
+                    id="controllable-states-demo"
+                    options={topGender}
+                    renderInput={(params) => (
+                      <TextField {...params} label="Gender" dir="ltr" />
+                    )}
+                  />
+                </div>
 
-              <div className="Gender" style={{ marginTop: 25 }}>
-                <Autocomplete
-                  gender={gender}
-                  onChange={(event, newGender) => {
-                    setGender(newGender);
-                  }}
-                  inputGender={inputGender}
-                  onInputChange={(event, newInputGender) => {
-                    setInputGender(newInputGender);
-                  }}
-                  id="controllable-states-demo"
-                  options={topGender}
-                  sx={{ width: 300 }}
-                  renderInput={(params) => (
-                    <TextField {...params} label="الجنس" />
-                  )}
-                />
-              </div>
+                <div className="email" style={{ marginTop: 25 }}>
+                  <TextField
+                    label="Email"
+                    variant="outlined"
+                    fullWidth
+                    className="TalentInput"
+                    dir="ltr"
+                  />
+                </div>
 
-              <div className="email" style={{ marginTop: 25 }}>
-                <TextField
-                  label="البريد الالكتروني"
-                  variant="outlined"
-                  fullWidth
-                  className="TalentInput"
-                />
-              </div>
-
-              <div className="SelectCountry" style={{ marginTop: 25 }}>
-                <Autocomplete
-                  id="country-select-demo"
-                  sx={{ width: 300 }}
-                  options={countries}
-                  autoHighlight
-                  getOptionLabel={(option) => option.label}
-                  renderOption={(props, option) => (
-                    <Box
-                      component="li"
-                      sx={{ "& > img": { mr: 2, flexShrink: 0 } }}
-                      {...props}
-                    >
-                      {option.label} {option.code}
-                    </Box>
-                  )}
-                  renderInput={(params) => (
-                    <TextField
-                      {...params}
-                      label="الدولة"
-                      inputProps={{
-                        ...params.inputProps,
-                        autoComplete: "new-password",
-                      }}
-                    />
-                  )}
-                />
-              </div>
-
-              <div className="PhoneNumber" style={{ marginTop: 25 }}>
-                <TextField
-                  label="رقم الهاتف"
-                  variant="outlined"
-                  fullWidth
-                  className="TalentInput"
-                />
-              </div>
-
-              <FormControl sx={{ marginTop: 3 }} variant="outlined">
-                <InputLabel htmlFor="outlined-adornment-password">
-                  كلمة المرور
-                </InputLabel>
-                <OutlinedInput
-                  id="outlined-adornment-password"
-                  type={showPassword ? "text" : "password"}
-                  endAdornment={
-                    <InputAdornment position="end">
-                      <IconButton
-                        aria-label="toggle password visibility"
-                        onClick={handleClickShowPassword}
-                        onMouseDown={handleMouseDownPassword}
-                        edge="end"
+                <div className="SelectCountry" style={{ marginTop: 25 }}>
+                  <Autocomplete
+                    id="country-select-demo"
+                    dir="ltr"
+                    options={countries}
+                    autoHighlight
+                    getOptionLabel={(option) => option.label}
+                    renderOption={(props, option) => (
+                      <Box
+                        component="li"
+                        sx={{ "& > img": { mr: 2, flexShrink: 0 } }}
+                        {...props}
                       >
-                        {showPassword ? <VisibilityOff /> : <Visibility />}
-                      </IconButton>
-                    </InputAdornment>
-                  }
-                  label="Password"
-                />
-              </FormControl>
+                        {option.label} {option.code}
+                      </Box>
+                    )}
+                    renderInput={(params) => (
+                      <TextField
+                        {...params}
+                        label="Country"
+                        dir="ltr"
+                        inputProps={{
+                          ...params.inputProps,
+                          autoComplete: "new-password",
+                        }}
+                      />
+                    )}
+                  />
+                </div>
+
+                <div className="PhoneNumber" style={{ marginTop: 25 }}>
+                  <TextField
+                    label="Phone Number"
+                    variant="outlined"
+                    fullWidth
+                    className="TalentInput"
+                    dir="ltr"
+                  />
+                </div>
+
+                <FormControl sx={{ marginTop: 3 }} variant="outlined">
+                  <InputLabel
+                    htmlFor="outlined-adornment-password"
+                    className="password"
+                    dir="ltr"
+                  >
+                    Password
+                  </InputLabel>
+                  <OutlinedInput
+                    id="outlined-adornment-password"
+                    dir="ltr"
+                    type={showPassword ? "text" : "password"}
+                    endAdornment={
+                      <InputAdornment position="end">
+                        <IconButton
+                          aria-label="toggle password visibility"
+                          onClick={handleClickShowPassword}
+                          onMouseDown={handleMouseDownPassword}
+                          edge="end"
+                          dir="ltr"
+                        >
+                          {showPassword ? <VisibilityOff /> : <Visibility />}
+                        </IconButton>
+                      </InputAdornment>
+                    }
+                    label="Password"
+                  />
+                </FormControl>
+              </div>
             </div>
           )}
         </div>
         <p className="text-lg">
-          تسجيل دخولك يعني انك موافق{" "}
-          <span className="cursor-pointer font-[400] text-[#0000EE] underline">
-            شروط الخدمة
+          Your login means that you agree to{" "}
+          <span
+            className="cursor-pointer font-[400] text-[#0000EE] underline"
+            style={{ color: "#0000EE", textDecoration: "underline" }}
+          >
+            Terms Of Service{" "}
           </span>{" "}
-          و{" "}
-          <span className="cursor-pointer font-[400] text-[#0000EE] underline">
-            سياسة الخصوصية
+          and{" "}
+          <span
+            className="cursor-pointer font-[400] text-[#0000EE] underline"
+            style={{ color: "#0000EE", textDecoration: "underline" }}
+          >
+            Privacy Policy{" "}
           </span>
         </p>
         {/* Submit button */}
@@ -480,7 +485,7 @@ function PostingOpportunity({ onClose }) {
             }}
             onClick={handleDialogOpen}
           >
-            انضم إلى كاستينج أريبيا{" "}
+            Join Casting Arabia{" "}
           </Button>
         </Box>
       </DialogContent>

@@ -1,0 +1,25 @@
+select#Roles {
+  padding: 8.5px 14px;
+  font-size: 1rem;
+  font-family: "Segoe UI";
+  border-radius: 8px;
+  display: grid;
+}
+select#Status {
+  padding: 8.5px 14px;
+  font-size: 1rem;
+  font-family: "Segoe UI";
+  border-radius: 8px;
+  display: grid;
+}
+select#Opportunities {
+  padding: 8.5px 14px;
+  font-size: 1rem;
+  font-family: "Segoe UI";
+  border-radius: 8px;
+  display: grid;
+}
+label {
+  font-family: system-ui;
+  font-size: large;
+}

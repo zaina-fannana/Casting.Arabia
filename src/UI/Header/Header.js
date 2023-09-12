@@ -1,19 +1,19 @@
 import React, { useState } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link} from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import logo from "../../assets/images/logo.imag.webp";
 import useAuth from "../../hooks/useAuth";
-import LoginPage from "../../pages/LoginPage/LoginPage";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Dialog from "@mui/material/Dialog";
 import PostingOpportunity from "../../pages/PostingOpportunity/PostingOpportunity";
 import CreateAccount from "../../pages/CreateAccount/CreateAccount";
+import LoginPage from "../../pages/LoginPage/LoginPage";
 
-const pages = ["مركز التعلم", "الأخبار", "الفرص"];
+const pages = ["Learning Center", "News", "Opportunities"];
 const settings = ["Logout"];
 
 function Header() {
@@ -46,6 +46,7 @@ function Header() {
   const closeCreateAccount = () => {
     setCreateAccountOpen(false);
   };
+
   return (
     <AppBar position="static" sx={{ backgroundColor: "white" }}>
       <Container
@@ -66,9 +67,10 @@ function Header() {
               background: "#6371E0 !important",
               fontFamily: "Segoe UI",
               boxShadow: "#b5bdefcc 0px 4px 12px",
+              textTransform: "none",
             }}
           >
-            انشاء حساب جديد
+            Create account{" "}
           </Button>{" "}
           {"   "}
           <Button
@@ -78,9 +80,10 @@ function Header() {
               fontSize: 16,
               fontWeight: 400,
               fontFamily: "Segoe UI",
+              textTransform: "none",
             }}
           >
-            نشر فرصة
+            Post opportunity
           </Button>{" "}
           <Button
             onClick={openLoginPage}
@@ -92,7 +95,7 @@ function Header() {
               fontFamily: "Segoe UI",
             }}
           >
-            تسجيل دخول
+            Login
           </Button>
           <Button
             sx={{
@@ -103,7 +106,7 @@ function Header() {
               fontFamily: "Segoe UI",
             }}
           >
-            English{" "}
+            العربية{" "}
           </Button>
         </div>
 
@@ -133,7 +136,7 @@ function Header() {
               </Button>
             ))}
           </Box>
-          <Link to="/castingarabia" style={{ textDecoration: "none" }}>
+          <Link to="/HomePage">
             <Typography
               variant="h6"
               noWrap
@@ -178,6 +181,7 @@ function Header() {
       >
         {" "}
         <CreateAccount onClose={closeCreateAccount} />
+        <LoginPage open={loginPageOpen} onClose={closeLoginPage} />
       </Dialog>
     </AppBar>
   );

@@ -23,9 +23,7 @@ export default function App() {
     <div id="Opportunities" className="OpportunitiesSection">
       <div className="OpportunitiesSection">
         <div className="OppTitle0">
-          <h2 className="OppTitle">
-            الفرص
-          </h2>
+          <h2 className="OppTitle">Opportunities</h2>
         </div>
         <Swiper
           modules={[Virtual, Navigation, Pagination]}
@@ -47,21 +45,28 @@ export default function App() {
                   image={opportunity.image}
                 />
                 <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
+                  <Typography
+                    gutterBottom
+                    variant="h5"
+                    component="div"
+                    dir="ltr"
+                  >
                     {opportunity.title}
                   </Typography>
-                  <Typography variant="body2" color="text.secondary">
+                  <Typography variant="body2" color="text.secondary" dir="ltr">
                     {opportunity.description}
                   </Typography>
                 </CardContent>
                 <CardActions>
+                  <div style={{ flex: 1 }}></div>
                   <Button
                     size="small"
                     style={{ background: "#e5fff2", color: "#30b06f" }}
                   >
-                    مدفوع
+                    Paid
                   </Button>
-                  <Button size="small">دور واحد</Button>
+                  <>︎ ︎ ︎</>
+                  <Button size="small">One Role</Button>
                 </CardActions>
               </Card>
             </SwiperSlide>
@@ -74,7 +79,7 @@ export default function App() {
               tabIndex="0"
               type="button"
             >
-              عرض أكثر
+              Show More{" "}
               <span className="MuiTouchRipple-root mui-rtl-w0pj6f"></span>
             </button>
           </div>

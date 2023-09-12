@@ -4,7 +4,7 @@ import "./Footer.css";
 
 const Footer = () => {
   return (
-    <footer className="MuiBox-root mui-rtl-19midj6">
+    <footer className="MuiBox-root mui-rtl-19midj6" dir="rtl">
       <nav
         className="MuiBox-root mui-rtl-wah1k1"
         style={{ display: "flex", flexDirection: "row-reverse" }}
@@ -17,7 +17,7 @@ const Footer = () => {
         <div className="MuiBox-root mui-rtl-181edu8">
           <a className="" href="/contact-us" style={{ textDecoration: "auto" }}>
             <p className="MuiTypography-root MuiTypography-body2 mui-rtl-1c0kuqw">
-              اتصل بنا
+              Contact Us
             </p>
           </a>
           <> ︎ ︎ ︎ ︎ ︎ ︎ ︎ ︎</>
@@ -29,7 +29,7 @@ const Footer = () => {
             style={{ textDecoration: "auto" }}
           >
             <p className="MuiTypography-root MuiTypography-body2 mui-rtl-1c0kuqw">
-              من نحن
+              About Us{" "}
             </p>
           </a>
           <> ︎ ︎ ︎ ︎ ︎ ︎ ︎ ︎</>
@@ -41,7 +41,7 @@ const Footer = () => {
             style={{ textDecoration: "auto" }}
           >
             <p className="MuiTypography-root MuiTypography-body2 mui-rtl-1c0kuqw">
-              شروط الخدمة
+              Terms of Service{" "}
             </p>
           </a>
           <> ︎ ︎ ︎ ︎ ︎ ︎ ︎ ︎</>
@@ -53,7 +53,7 @@ const Footer = () => {
             style={{ textDecoration: "auto" }}
           >
             <p className="MuiTypography-root MuiTypography-body2 mui-rtl-1c0kuqw">
-              سياسة الخصوصية
+              Privacy Policy{" "}
             </p>
           </a>
           <> ︎ ︎ ︎ ︎ ︎ ︎ ︎ ︎</>
@@ -65,7 +65,7 @@ const Footer = () => {
             style={{ textDecoration: "auto" }}
           >
             <p className="MuiTypography-root MuiTypography-body2 mui-rtl-1c0kuqw">
-              أسئلة مكررة
+              Frequently Asked Questions{" "}
             </p>
           </a>
         </div>

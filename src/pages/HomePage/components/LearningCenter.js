@@ -19,7 +19,7 @@ export default function App() {
     <>
       <div id="News" className="NewsSection">
         <div className="NewsSection">
-          <h2 className="NewsTitle">مركز التعلم</h2>
+          <h2 className="NewsTitle">Learning Center</h2>
           <Swiper
             modules={[Virtual, Navigation]}
             onSwiper={setSwiperRef}
@@ -28,7 +28,7 @@ export default function App() {
             pagination={{ clickable: true }}
             slidesPerView={4}
             virtual
-            style={{marginTop:-39}}
+            // style={{marginTop:-39}}
           >
             {LearningCenter.map((learningItem) => (
               <SwiperSlide key={learningItem.id} virtualIndex={learningItem.id}>
@@ -41,10 +41,7 @@ export default function App() {
                     image={learningItem.image}
                   />
                   <CardContent>
-                    <Typography gutterBottom variant="h5" component="div">
-                      {learningItem.title}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
+                    <Typography variant="body2" color="text.secondary" dir="ltr">
                       {learningItem.description}
                     </Typography>
                   </CardContent>
@@ -59,7 +56,7 @@ export default function App() {
                 tabIndex="0"
                 type="button"
               >
-                عرض أكثر
+                Show More{" "}
                 <span className="MuiTouchRipple-root mui-rtl-w0pj6f"></span>
               </button>
             </div>
