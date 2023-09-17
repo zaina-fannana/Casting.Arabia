@@ -10,22 +10,11 @@ const LoginPage = ({ open, onClose, setIsAuthenticated }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  // add validation to the form using formik and yup
-  // fix functions names
   // search about react query
-
-  // do login api call for this url
-  // https://api.castingarabia.com/auth/login
-  // http://casting-ec2-1307338951.us-east-2.elb.amazonaws.com:7001/auth/login
-  // {
-  //   email: '',
-  //   password:''
-  // }
-  // save user response(token)
 
   const handleAuthentication = async (request) => {
     try {
-      const response = await loginFunc(JSON.stringify(request));
+      const response = await loginFunc(request);
       if (response.ok) {
         const data = await response.json();
         return data.token;

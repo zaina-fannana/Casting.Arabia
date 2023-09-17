@@ -1,0 +1,32 @@
+p.text-3xl.font-semibold {
+  /* margin: 0px; */
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-family: "Segoe UI";
+  line-height: 3.3;
+  margin-right: 990px;
+}
+
+h6.MuiTypography-root.MuiTypography-h6.css-2ulfj5-MuiTypography-root {
+  /* margin: 0px; */
+  font-size: 1rem;
+  font-family: "Segoe UI", Helvetica, Tahoma, Geneva, Verdana, Arial, sans-serif;
+  font-weight: 400;
+  line-height: 3.3;
+  color: rgb(151, 172, 204);
+}
+.grid.grid-cols-3.gap-10 {
+  text-align: center;
+}
+.MuiGrid-root.MuiGrid-item.MuiGrid-grid-xs-12.css-1idn90j-MuiGrid-root {
+    text-align: start;
+    margin-left: 220px;
+}
+.flex.items-center.gap-5.my-10 {
+  text-align: center;
+}
+button.MuiButtonBase-root.MuiButton-root.MuiButton-text.MuiButton-textPrimary.MuiButton-sizeMedium.MuiButton-textSizeMedium.MuiButton-root.MuiButton-text.MuiButton-textPrimary.MuiButton-sizeMedium.MuiButton-textSizeMedium.css-1e6y48t-MuiButtonBase-root-MuiButton-root {
+  margin-left: 240px;
+}
+
+

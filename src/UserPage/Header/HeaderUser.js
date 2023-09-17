@@ -22,7 +22,10 @@ import Community from "../creator/Community/Community";
 import AboutUs from "../creator/AboutUs/AboutUs";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-
+import PermIdentityRoundedIcon from "@mui/icons-material/PermIdentityRounded";
+import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
+import Profile from "../component/Profile/Profile";
+import OpportunitiesPage from "../creator/OpportunitiesPage/OpportunitiesPage";
 const navigationItems = [
   {
     href: "/creator/review",
@@ -52,6 +55,7 @@ function HeaderUser() {
   const [tooltipText, setTooltipText] = useState("");
   const [activeIcon, setActiveIcon] = useState(null);
   const [menuAnchorEl, setMenuAnchorEl] = useState(null);
+  const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
 
   const handleMouseEnter = (text) => {
     setTooltipText(text);
@@ -75,6 +79,10 @@ function HeaderUser() {
 
   const handleMenuClose = () => {
     setMenuAnchorEl(null);
+  };
+
+  const handleProfileMenuItemClick = () => {
+    setIsProfileMenuOpen((prevState) => !prevState);
   };
 
   return (
@@ -122,7 +130,6 @@ function HeaderUser() {
                 }}
                 onMouseEnter={() => handleMouseEnter("Language")}
                 onMouseLeave={handleMouseLeave}
-                onClick={handleMenuClick}
               >
                 العربية
               </Button>
@@ -137,8 +144,12 @@ function HeaderUser() {
                 open={Boolean(menuAnchorEl)}
                 onClose={handleMenuClose}
               >
-                <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-                <MenuItem onClick={handleMenuClose}>Logout</MenuItem>
+                <MenuItem onClick={handleProfileMenuItemClick}>
+                  Profile <PermIdentityRoundedIcon />{" "}
+                </MenuItem>
+                <MenuItem onClick={handleMenuClose}>
+                  Logout <LogoutRoundedIcon />{" "}
+                </MenuItem>
               </Menu>
             </div>
 
@@ -167,9 +178,11 @@ function HeaderUser() {
       {activeIcon === "Community" && <Community />}
       {activeIcon === "About Us" && <AboutUs />}
 
-      {!activeIcon && (
+      {isProfileMenuOpen && <Profile />}
+
+      {!activeIcon && !isProfileMenuOpen && (
         <>
-          <Opportunities />
+          {/* <Opportunities /> */}
           <News />
           <LearningCenter />
         </>
