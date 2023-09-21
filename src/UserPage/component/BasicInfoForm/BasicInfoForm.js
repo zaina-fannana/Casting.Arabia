@@ -12,9 +12,14 @@ import {
   TextField,
 } from "@mui/material";
 import ModeEditOutlineOutlinedIcon from "@mui/icons-material/ModeEditOutlineOutlined";
+import * as Yup from 'yup';
+import { useNavigate } from 'react-router-dom';
+
 const BasicInfoForm = (props) => {
   const [open, setOpen] = useState(false);
-  const [file, setFile] = useState(props.profileImage);
+  // const [file, setFile] = useState(props.profileImage);
+  const [errors, setErrors] = useState();
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     dob: "",
     country: "",
@@ -35,11 +40,56 @@ const BasicInfoForm = (props) => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = async () => {
-    // Handle the form submission logic here
+  // const handleSubmit = async () => {
 
     // Close the dialog
-    handleClose();
+    // handleClose();
+    
+const handleSubmit = (event) => {
+  const token = localStorage.getItem("token");
+  // const history = useHistory();
+
+  event.preventDefault();
+  Yup
+    .object()
+    .shape({}) // Define your Yup schema here
+    .validate(formData, { abortEarly: false })
+    .then(() => {})
+    .catch((validationErrors) => {
+      const Errors = {};
+      validationErrors.inner.forEach((error) => {
+        Errors[error.path] = error.message;
+      });
+      setErrors(Errors);
+    });
+
+  (async () => {
+    try {
+      const res = await fetch(
+        "http://casting-ec2-1307338951.us-east-2.elb.amazonaws.com:7001/me",
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+      const profileInfo = await res.json();
+      if (profileInfo) {
+        navigate.push("https://api.castingarabia.com/creator/profile");
+        if (
+          formData.city &&
+          formData.country &&
+          formData.dob &&
+          formData.gender !== ""
+        ) {
+          setOpen(false);
+        }
+      }
+    } catch (error) {}
+  })();
   };
 
   return (

@@ -4,6 +4,7 @@ select#Roles {
   font-family: "Segoe UI";
   border-radius: 8px;
   display: grid;
+  height: auto;
 }
 select#Status {
   padding: 8.5px 14px;
@@ -11,6 +12,7 @@ select#Status {
   font-family: "Segoe UI";
   border-radius: 8px;
   display: grid;
+  height: auto;
 }
 select#Opportunities {
   padding: 8.5px 14px;
@@ -18,6 +20,7 @@ select#Opportunities {
   font-family: "Segoe UI";
   border-radius: 8px;
   display: grid;
+  height: auto;
 }
 label {
   font-family: system-ui;

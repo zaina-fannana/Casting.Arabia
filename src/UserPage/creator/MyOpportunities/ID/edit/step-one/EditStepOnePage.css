@@ -1,0 +1,32 @@
+p.StepOne {
+  font-size: 2.2rem;
+  font-weight: 600;
+  font-family: "Segoe UI", Helvetica, Tahoma, Geneva, Verdana, Arial, sans-serif;
+  line-height: 3.3;
+  color: rgb(99, 113, 224);
+  text-align: center;
+}
+button.save {
+  background-color: transparent;
+  vertical-align: middle;
+  font-size: 1.05rem;
+  font-family: "Segoe UI", Helvetica, Tahoma, Geneva, Verdana, Arial, sans-serif;
+  font-weight: 500;
+  padding: 5px 15px;
+  border-radius: 8px;
+  border: 2px solid rgba(99, 113, 224, 0.5);
+  color: rgb(99, 113, 224);
+  margin: 30px 0px 0px 0px;
+}
+button.border-2.border-blue-700.bg-blue-700.rounded-md.text-lg.text-white.px-4.py-1.font-semibold.hover\:bg-blue-600.duration-200 {
+  border: 0px;
+  vertical-align: middle;
+  font-size: 1.05rem;
+  font-family: "Segoe UI", Helvetica, Tahoma, Geneva, Verdana, Arial, sans-serif;
+  font-weight: 500;
+  padding: 6px 16px;
+  border-radius: 8px;
+  color: rgb(255, 255, 255);
+  background-color: rgb(99, 113, 224);
+  margin: 30px 0px 0px 0px;
+}

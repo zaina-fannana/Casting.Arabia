@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect ,useNavigate} from "react";
 import {
   Button,
   Dialog,
@@ -15,6 +15,7 @@ const UserInfoForm = (props) => {
   const [open, setOpen] = useState(false);
   const [errors, setErrors] = useState({});
   const [error, setError] = useState("");
+  const navigate = useNavigate("");
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -69,6 +70,8 @@ const UserInfoForm = (props) => {
         if (res.ok) {
           const profileInfo = await res.json();
           if (profileInfo) {
+            setError(profileInfo.code);
+            navigate.push("https://www.castingarabia.com/creator/profile");
           }
         } else {
         }

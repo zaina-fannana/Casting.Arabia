@@ -26,7 +26,7 @@ export default function App() {
           <h2 className="OppTitle">Opportunities</h2>
         </div>
         <Swiper
-          modules={[Virtual, Navigation, Pagination]}
+          modules={[Virtual]}
           onSwiper={setSwiperRef}
           spaceBetween={16}
           navigation={true}

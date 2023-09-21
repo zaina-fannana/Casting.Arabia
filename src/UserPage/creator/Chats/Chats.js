@@ -26,7 +26,7 @@ function Chats() {
   };
 
   return (
-    <div>
+    <div style={{minHeight:"73vh"}}>
       <p className="text-4xl text-blue-600 font-semibold mt-[40px]">Messages</p>
       <div
         style={{
@@ -47,15 +47,7 @@ function Chats() {
             {/* <p className="text-lg h-full flex items-center justify-center">
             Select a conversation...
           </p> */}
-            <div className="p-4">
-              {/* Assuming ChatAccount is a component */}
-              {/* <ChatAccount
-              ImageClassName="!w-20 !h-20"
-              list="list"
-              onChange={handleInputChange}
-              status={status}
-            /> */}
-            </div>
+
             <div className="sm:w-[98%] h-60 overflow-y-scroll flex flex-col items-end gap-1 py-2 border-t-[1px] border-b-[1px] border- blue-400">
               {messages.map((item, index) => (
                 <div key={index}>
@@ -66,10 +58,6 @@ function Chats() {
               ))}
             </div>
             <div className="h-12 flex gap-5 !w-full items-center">
-              <div className="w-10 h-full mt-2 ml-2">
-                {/* Assuming UploadImage is a component */}
-                {/* <UploadImage /> */}
-              </div>
               <div className="w-full">
                 <input
                   value={message}
@@ -91,9 +79,6 @@ function Chats() {
               </div>
             </div>
           </div>
-          {/* <div className="sm:col-span-2">
-            <p className="text-3xl font-semibold mt-4">Contacts</p>
-          </div> */}
         </div>
       </div>
     </div>

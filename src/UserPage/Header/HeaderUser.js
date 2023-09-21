@@ -13,7 +13,6 @@ import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
 import ErrorOutlineOutlinedIcon from "@mui/icons-material/ErrorOutlineOutlined";
 import "./Header.css";
 import AccountCircleRoundedIcon from "@mui/icons-material/AccountCircleRounded";
-import Opportunities from "../../pages/HomePage/components/Opportunities";
 import News from "../../pages/HomePage/components/News";
 import LearningCenter from "../../pages/HomePage/components/LearningCenter";
 import Review from "../creator/Review/Review";
@@ -25,7 +24,7 @@ import MenuItem from "@mui/material/MenuItem";
 import PermIdentityRoundedIcon from "@mui/icons-material/PermIdentityRounded";
 import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
 import Profile from "../component/Profile/Profile";
-import OpportunitiesPage from "../creator/OpportunitiesPage/OpportunitiesPage";
+import MyOpportunities from "../creator/MyOpportunities/MyOpportunities";
 const navigationItems = [
   {
     href: "/creator/review",
@@ -57,6 +56,9 @@ function HeaderUser() {
   const [menuAnchorEl, setMenuAnchorEl] = useState(null);
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
 
+  const handleMenuClose = () => {
+    navigate.push('https://www.castingarabia.com/auth/login');
+  };
   const handleMouseEnter = (text) => {
     setTooltipText(text);
   };
@@ -77,9 +79,9 @@ function HeaderUser() {
     setMenuAnchorEl(event.currentTarget);
   };
 
-  const handleMenuClose = () => {
-    setMenuAnchorEl(null);
-  };
+  // const handleMenuClose = () => {
+  //   setMenuAnchorEl(null);
+  // };
 
   const handleProfileMenuItemClick = () => {
     setIsProfileMenuOpen((prevState) => !prevState);
@@ -183,8 +185,9 @@ function HeaderUser() {
       {!activeIcon && !isProfileMenuOpen && (
         <>
           {/* <Opportunities /> */}
-          <News />
-          <LearningCenter />
+          <MyOpportunities />
+          {/* <News />
+          <LearningCenter /> */}
         </>
       )}
     </>
