@@ -94,7 +94,6 @@ const EditStepOnePage = () => {
 
   return (
     <div className="my-12" style={{ minHeight: "70vh", background: "#f5f5f5" }}>
-      <p className="StepOne">Posting an Opportunity</p>
       {showStepTwo ? (
         <StepTwoEdit />
       ) : (
@@ -106,6 +105,7 @@ const EditStepOnePage = () => {
             marginRight: "365px",
           }}
         >
+          <p className="StepOne">Posting an Opportunity</p>
           <div>
             <TextField
               value={formData.title}
