@@ -10,6 +10,9 @@ import "./StepTwoEdit.css";
 import ModeEditOutlineIcon from "@mui/icons-material/ModeEditOutline";
 import StepOneRoles from "../../roles/step_one/StepOneRoles";
 import Summary from "../summary/Summary";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
 const StepTwoEdit = () => {
   const currentDate = dayjs();
@@ -207,20 +210,10 @@ const StepTwoEdit = () => {
               <label className="block text-xl mb-2" htmlFor="expirationDate">
                 ?When should this listing expire
               </label>
-              {/* <DatePicker
-              minDate={currentDate}
-              label="Select a date"
-              value={expirationDate}
-              inputProps={{
-                className:
-                  "w-full h-14 border-2 border-gray-300 outline-none rounded-xl text-lg border-none px-3",
-                id: "expirationDate",
-              }}
-              format="MM/dd/yyyy"
-              onChange={handleDateChange}
-              renderInput={(params) => <TextField {...params} />}
-              adapter={AdapterDateFns}
-            /> */}
+
+              <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <DatePicker />
+              </LocalizationProvider>
             </div>
 
             <div className="flex items-center gap-4">
@@ -236,7 +229,9 @@ const StepTwoEdit = () => {
                 className="continuo"
               >
                 {expirationDate ? (
-                  <a href={`/creator/opportunities/edit/summary`}>Continue</a>
+                  <div href={`/creator/opportunities/edit/summary`}>
+                    Continue
+                  </div>
                 ) : (
                   "Continue"
                 )}

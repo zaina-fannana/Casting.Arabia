@@ -42,7 +42,7 @@ p.text-xl.p-4 {
 }
 label.block.text-xl.mb-2 {
   color: rgba(0, 0, 0, 0.6);
-  line-height: 1.4375em;
+  line-height: 5.4375em;
   display: block;
   transform-origin: left top;
   transform: translate(0px, -1.5px) scale(0.75);
@@ -84,7 +84,7 @@ button.text-2xl.text-blue-600.font-semibold.hover\:bg-blue-100.rounded-full.dura
   border: #fff;
 }
 .flex.items-center.gap-1 {
-    display: flex;
+  display: flex;
 }
 button.continuo {
   border: 0px;
@@ -98,3 +98,6 @@ button.continuo {
   background-color: rgb(99, 113, 224);
   margin: 30px 0px 0px 0px;
 }
+/* .MuiFormControl-root.MuiTextField-root.css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
+  margin-top: -30px;
+} */

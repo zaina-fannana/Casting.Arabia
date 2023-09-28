@@ -6,6 +6,7 @@ import InputLabel from "@mui/material/InputLabel";
 import FormControl from "@mui/material/FormControl";
 import NativeSelect from "@mui/material/NativeSelect";
 import "./StepOneRoles.css";
+import StepTwoRoles from "../step_two/StepTwoRoles";
 
 function StepOneRoles() {
   const id = "";
@@ -14,6 +15,7 @@ function StepOneRoles() {
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState();
+  const [showStepTwo, setShowStepTwo] = useState(false);
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
   const [formData, setFormData] = useState({
     considerGender: false,
@@ -83,21 +85,18 @@ function StepOneRoles() {
     });
   };
 
+  const handleContinue = () => {
+    window.history.pushState(
+      {},
+      "",
+      "creator/opportunities/1833/edit/step-two"
+    );
+    setShowStepTwo(true);
+  };
+
   const handleSubmit = (event) => {
     const token = localStorage.getItem("token");
     event.preventDefault();
-    // schema
-    //   .validate(formData, { abortEarly: false })
-    //   .then(() => {
-    //     console.log("Form data is valid:", formData);
-    //   })
-    //   .catch((validationErrors) => {
-    //     const Errors = {};
-    //     validationErrors.inner.forEach((error) => {
-    //       Errors[error.path] = error.message;
-    //     });
-    //     setErrors(Errors);
-    //   });
 
     (async () => {
       try {
@@ -137,173 +136,214 @@ function StepOneRoles() {
 
   return (
     <div className="my-12">
-      <p
-        className="text-3xl text-blue-600 font-semibold sm:w-[500px] mx-auto mb-10"
-        style={{ marginRight: "0px" }}
-      >
-        Role Details
-      </p>
-      <div className="flex flex-col sm:w-[500px] mx-auto gap-3">
-        <div sx={{ minWidth: 120, lineHeight: 5 }}>
-          <TextField
-            value={formData.name}
-            onChange={handleInputChange}
-            name="name"
-            label="Role Name"
-            placeholder="Name"
-            className="sm:w-[600px]"
-            fullWidth
-          />
-          <p className="text-sm  text-red-500  p-2 inline-block ">
-            {errors.name && errors.name}
-          </p>
-        </div>
-
-        <div>
-          <Box sx={{ minWidth: 120, lineHeight: 5 }}>
-            <FormControl fullWidth>
-              <InputLabel variant="standard" htmlFor="uncontrolled-native">
-                ? talent you are looking for
-              </InputLabel>
-              <NativeSelect
-                defaultValue={30}
-                inputProps={{
-                  name: "age",
-                  id: "uncontrolled-native",
-                }}
-              >
-                <option> ︎</option>
-                <option>Actor</option>
-                <option>Singer</option>
-                <option>Model</option>
-                <option>Host/hostess</option>
-                <option>Dancer</option>
-                <option>Musician</option>
-                <option>staff</option>
-                <option>writer</option>
-                <option>Other</option>
-                <option>Camera performer</option>
-              </NativeSelect>
-            </FormControl>
-          </Box>
-        </div>
-
-        {formData.talentType === "other" ? (
-          <div>
-            <TextField
-              value={formData.otherTalentType}
-              onChange={handleInputChange}
-              name="otherTalentType"
-              variant="standard"
-              label="Other Talent Type"
-              className="sm:w-[500px] mt-5"
-            />
-            <p className="text-sm  text-red-500  p-2 inline-block ">
-              {errors.otherTalentType && errors.otherTalentType}
-            </p>
-          </div>
-        ) : (
-          <div className="my-5">
-            <Box sx={{ minWidth: 120, lineHeight: 5 }}>
-              <FormControl fullWidth>
-                <InputLabel
-                  variant="standard"
-                  htmlFor="uncontrolled-native"
-                  onChange={handleSelect2}
-                >
-                  Sub Type{" "}
-                </InputLabel>
-                <NativeSelect>
-                  <option> ︎</option>
-                  <option>Actor</option>
-                  <option>Singer</option>
-                  <option>Model</option>
-                  <option>writer</option>
-                  <option>Other</option>
-                </NativeSelect>
-              </FormControl>
-            </Box>
-          </div>
-        )}
-        <div>
-          <Box sx={{ minWidth: 120, lineHeight: 5 }}>
-            <FormControl fullWidth>
-              <InputLabel
-                variant="standard"
-                htmlFor="uncontrolled-native"
-                onChange={handleInputChange}
-              >
-                Gender{" "}
-              </InputLabel>
-              <NativeSelect>
-                <option> ︎</option>
-                <option>male</option>
-                <option>female</option>
-              </NativeSelect>
-            </FormControl>
-          </Box>
-        </div>
-        <div className="flex flex-col gap-3">
-          <FormControlLabel
-            control={
-              <Checkbox
-                checked={formData.considerGender}
-                name="considerGender"
-                onChange={handleCheckChange}
-              />
-            }
-            label="This is a firm requirement"
-          />
-          <FormControlLabel
-            control={
-              <Checkbox
-                checked={formData.isAcceptingTapedAudition}
-                name="isAcceptingTapedAudition"
-                onChange={handleCheckChange}
-              />
-            }
-            label=" ? Accepting taped audition"
-          />
-        </div>
-        <div className="flex items-center gap-4">
-          <button
-            className="save"
-            href={"/creator/opportunities/edit/step-two"}
+      {showStepTwo ? (
+        <StepTwoRoles />
+      ) : (
+        <>
+          <p
+            className="text-3xl text-blue-600 font-semibold sm:w-[500px] mx-auto mb-10"
+            style={{ marginRight: "200px" }}
           >
-            Save For Later
-          </button>
-
-          <> ︎ ︎ ︎</>
-
-          {isLoading &&
-          formData.type &&
-          formData.talentType &&
-          formData.gender &&
-          formData.name !== "" ? (
-            <div className="border-2 border-blue-700 bg-blue-700 rounded-md text-lg text-white px-4 py-1 font-semibold hover:bg-blue-600 duration-200">
-              {/* <Loading buttonContent="Continue" /> */}
+            Role Details
+          </p>
+          <div className="flex flex-col sm:w-[500px] mx-auto gap-3">
+            <div sx={{ minWidth: 120, lineHeight: 5 }}>
+              <TextField
+                value={formData.name}
+                onChange={handleInputChange}
+                name="name"
+                label="Role Name"
+                placeholder="Name"
+                className="sm:w-[600px]"
+                fullWidth
+              />
+              <p className="text-sm  text-red-500  p-2 inline-block ">
+                {errors.name && errors.name}
+              </p>
             </div>
-          ) : (
-            <button
-              onClick={handleSubmit}
-              className="border-2 border-blue-700 bg-blue-700 rounded-md text-lg text-white px-4 py-1 font-semibold hover:bg-blue-600 duration-200"
+
+            <div>
+              <Box sx={{ minWidth: 120, lineHeight: 5 }}>
+                <FormControl fullWidth>
+                  <InputLabel variant="standard" htmlFor="uncontrolled-native">
+                    ? talent you are looking for
+                  </InputLabel>
+                  <NativeSelect
+                    defaultValue={30}
+                    inputProps={{
+                      name: "age",
+                      id: "uncontrolled-native",
+                    }}
+                  >
+                    <option> ︎</option>
+                    <option>Actor</option>
+                    <option>Singer</option>
+                    <option>Model</option>
+                    <option>Host/hostess</option>
+                    <option>Dancer</option>
+                    <option>Musician</option>
+                    <option>staff</option>
+                    <option>writer</option>
+                    <option>Other</option>
+                    <option>Camera performer</option>
+                  </NativeSelect>
+                </FormControl>
+              </Box>
+            </div>
+
+            {formData.talentType === "other" ? (
+              <div>
+                <TextField
+                  value={formData.otherTalentType}
+                  onChange={handleInputChange}
+                  name="otherTalentType"
+                  variant="standard"
+                  label="Other Talent Type"
+                  className="sm:w-[500px] mt-5"
+                />
+                <p className="text-sm  text-red-500  p-2 inline-block ">
+                  {errors.otherTalentType && errors.otherTalentType}
+                </p>
+              </div>
+            ) : null}
+
+            <div>
+              <Box sx={{ minWidth: 120, lineHeight: 5 }}>
+                <FormControl fullWidth>
+                  <InputLabel variant="standard" htmlFor="uncontrolled-native">
+                    role type
+                  </InputLabel>
+                  <NativeSelect
+                    defaultValue={30}
+                    inputProps={{
+                      name: "age",
+                      id: "uncontrolled-native",
+                    }}
+                  >
+                    <option> ︎</option>
+                    <option> Lead role</option>
+                    <option>supporting role</option>
+                    <option>extra role</option>
+                    <option>other</option>
+                  </NativeSelect>
+                </FormControl>
+              </Box>
+            </div>
+
+            {formData.type === "other" ? (
+              <div>
+                <TextField
+                  value={formData.otherRoleType}
+                  onChange={handleInputChange}
+                  name="otherRoleType"
+                  variant="standard"
+                  label="Other Role Type"
+                  className="sm:w-[500px] mt-5"
+                />
+                <p className="text-sm  text-red-500  p-2 inline-block ">
+                  {errors.otherRoleType && errors.otherRoleType}
+                </p>
+              </div>
+            ) : null}
+
+            <div className="my-5">
+              <Box sx={{ minWidth: 120, lineHeight: 5 }}>
+                <FormControl fullWidth>
+                  <InputLabel
+                    variant="standard"
+                    htmlFor="uncontrolled-native"
+                    onChange={handleSelect2}
+                  >
+                    Sub Type{" "}
+                  </InputLabel>
+                  <NativeSelect>
+                    <option> ︎</option>
+                    <option>Actor</option>
+                    <option>Singer</option>
+                    <option>Model</option>
+                    <option>writer</option>
+                    <option>Other</option>
+                  </NativeSelect>
+                </FormControl>
+              </Box>
+            </div>
+
+            <div>
+              <Box sx={{ minWidth: 120, lineHeight: 5 }}>
+                <FormControl fullWidth>
+                  <InputLabel variant="standard" htmlFor="uncontrolled-native">
+                    Gender
+                  </InputLabel>
+                  <NativeSelect
+                    defaultValue={30}
+                    inputProps={{
+                      name: "age",
+                      id: "uncontrolled-native",
+                    }}
+                  >
+                    <option> ︎</option>
+                    <option> Male</option>
+                    <option>Female</option>
+                    <option>other</option>
+                  </NativeSelect>
+                </FormControl>
+              </Box>
+            </div>
+
+            <div className="mt-5">
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={formData.considerGender}
+                    onChange={handleCheckChange}
+                    name="considerGender"
+                  />
+                }
+                label="This is a firm requirement"
+              />
+            </div>
+
+            <div className="mt-5">
+              <FormControlLabel
+                control={
+                  <Checkbox
+                    checked={formData.isAcceptingTapedAudition}
+                    onChange={handleCheckChange}
+                    name="This is a firm requirement"
+                  />
+                }
+                label="This is a firm requirement"
+              />
+            </div>
+
+            {/* <button
+              onClick={handleContinue}
+              className="text-white bg-blue-600 p-2 mt-10 text-xl rounded-md sm:w-[400px] mx-auto"
+              style={{ marginRight: "0px" }}
             >
-              {formData.type &&
-              formData.talentType &&
-              formData.gender &&
-              formData.name !== "" ? (
-                <button
-                  href={`/creator/opportunities/{.id}/roles/{.id2}/edit/step-two`}
-                >
-                  Continue
-                </button>
+              Continue
+            </button> */}
+            <div className="flex items-center gap-4">
+              <button className="save" href={"/creator"}>
+                Save For Later
+              </button>
+              <> ︎ ︎ ︎</>
+              {isLoading && formData.description && formData.location !== "" ? (
+                <div className="border-2 border-blue-700 bg-blue-700 rounded-md text-lg text-white px-4 py-1 font-semibold hover:bg-blue-600 duration-200"></div>
               ) : (
-                "Continue"
+                <button
+                  onClick={handleContinue}
+                  className="border-2 border-blue-700 bg-blue-700 rounded-md text-lg text-white px-4 py-1 font-semibold hover:bg-blue-600 duration-200"
+                >
+                  {formData.description && formData.location !== ""
+                    ? "Continue"
+                    : "Continue"}
+                </button>
               )}
-            </button>
-          )}
-        </div>
-      </div>
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 }

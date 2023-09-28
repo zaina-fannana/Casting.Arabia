@@ -8,7 +8,8 @@ import OpportunitiesData from "../../../mock/OpportunitiesData";
 import "swiper/css";
 import "swiper/css/navigation";
 import EditStepOnePage from "./ID/edit/step-one/EditStepOnePage";
-
+import CardMedia from "@mui/material/CardMedia";
+import "./MyOpportunities.css";
 export default function App() {
   const [swiperRef, setSwiperRef] = useState(null);
   const [isNewButtonClicked, setIsNewButtonClicked] = useState(false);
@@ -31,7 +32,9 @@ export default function App() {
               My Opportunities
             </h2>
             <button className="new" onClick={handleNewButtonClick}>
-              <p className="font-semibold text-xl text-blue-600 border-2 border-blue-600 rounded-md px-5 py-2 hover:bg-blue-100 duration-200">
+              <p
+              // className="font-semibold text-xl text-blue-600 border-2 border-blue-600 rounded-md px-5 py-2 hover:bg-blue-100 duration-200"
+              >
                 New
               </p>
             </button>
@@ -50,21 +53,21 @@ export default function App() {
               {MyOpportunities.map((opportunity) => (
                 <SwiperSlide key={opportunity.id} virtualIndex={opportunity.id}>
                   <Card sx={{ maxWidth: 345, boxShadow: "none" }}>
-                    {/* <CardMedia
-                    component="img"
-                    alt="Opportunity Image"
-                    height="140"
-                    image={opportunity.image}
-                  /> */}
+                    <CardMedia
+                      component="img"
+                      alt="Opportunity Image"
+                      height="140"
+                      image={opportunity.image}
+                    />
                     <CardContent>
-                      {/* <Typography
-                      gutterBottom
-                      variant="h5"
-                      component="div"
-                      dir="ltr"
-                    >
-                      {opportunity.title}
-                    </Typography> */}
+                      <Typography
+                        gutterBottom
+                        variant="h5"
+                        component="div"
+                        dir="ltr"
+                      >
+                        {opportunity.title}
+                      </Typography>
                       {/* <Typography variant="body2" color="text.secondary" dir="ltr">
                       {opportunity.description}
                     </Typography> */}

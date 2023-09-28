@@ -186,8 +186,8 @@ function HeaderUser() {
         <>
           {/* <Opportunities /> */}
           <MyOpportunities />
-          {/* <News />
-          <LearningCenter /> */}
+          <News />
+          <LearningCenter />
         </>
       )}
     </>
