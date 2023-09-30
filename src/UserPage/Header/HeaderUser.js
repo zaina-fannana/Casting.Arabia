@@ -99,11 +99,8 @@ function HeaderUser() {
         >
           <Toolbar
             disableGutters
-            sx={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-            }}
+            style={{ width: "100%" }}
+            className="toolBar"
           >
             <div className="icon-container" style={{ direction: "initial" }}>
               {navigationItems.map((item, index) => (

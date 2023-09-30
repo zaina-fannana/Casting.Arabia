@@ -27,3 +27,8 @@
 svg.MuiSvgIcon-root.MuiSvgIcon-fontSizeMedium.css-i4bv87-MuiSvgIcon-root {
   font-size: xx-large;
 }
+.toolBar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

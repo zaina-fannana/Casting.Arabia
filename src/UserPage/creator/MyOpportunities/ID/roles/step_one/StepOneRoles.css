@@ -27,3 +27,6 @@ label.MuiFormLabel-root.MuiInputLabel-root.MuiInputLabel-formControl.MuiInputLab
     transform 200ms cubic-bezier(0, 0, 0.2, 1) 0ms,
     max-width 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
 }
+.mt-5 {
+  direction: rtl;
+}

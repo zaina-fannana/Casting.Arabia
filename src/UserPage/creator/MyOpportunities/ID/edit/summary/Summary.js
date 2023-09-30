@@ -105,7 +105,7 @@ const Summary = () => {
           </div>
         </Box>
 
-        <Box className="MuiBox-root mui-h5fkc8">
+        <Box className="MuiBox-root mui-1hnm6b6">
           <Typography
             variant="h4"
             className="MuiTypography-root MuiTypography-h4 mui-1wvuldu"
@@ -114,48 +114,46 @@ const Summary = () => {
           </Typography>
           <div className="tags_container">
             <div className="tag">
-              <Input placeholder="Company name" disabled value="adsd" />
+              <Input placeholder="Production company" disabled value="asdfd" />
             </div>
           </div>
         </Box>
 
-        <Box className="MuiBox-root mui-az04tu">
+        <Box className="MuiBox-root mui-1hnm6b6">
+          <Typography
+            variant="h4"
+            className="MuiTypography-root MuiTypography-h4 mui-1wvuldu"
+          >
+            Production Personnel
+          </Typography>
           <div className="tags_container">
-            <Typography
-              variant="h4"
-              className="MuiTypography-root MuiTypography-h4 mui-1wvuldu"
-            >
-              Production Personnel
-            </Typography>
             <div className="tag">
               <Input
                 placeholder="Production Personnel"
                 disabled
-                value="sdfss"
+                value="asdfd"
               />
             </div>
           </div>
         </Box>
 
-        <Box className="MuiBox-root mui-h5fkc8">
+        <Box className="MuiBox-root mui-1hnm6b6">
           <Typography
             variant="h4"
             className="MuiTypography-root MuiTypography-h4 mui-1wvuldu"
           >
-            Production Description
+            Production Description{" "}
           </Typography>
           <div className="tags_container">
             <div className="tag">
               <Input
                 placeholder="Production Description"
-                multiple
                 disabled
-                value="asdasd"
+                value="asdfd"
               />
             </div>
           </div>
         </Box>
-
         <Box className="MuiBox-root mui-1hnm6b6">
           <Typography
             variant="body1"
@@ -210,16 +208,14 @@ const Summary = () => {
             container
             spacing={2}
             className="MuiGrid-root MuiGrid-container MuiGrid-spacing-xs-2 mui-tv7o6q"
-          >
-            {/* Add your content inside the Grid container */}
-          </Grid>
+          ></Grid>
         </Box>
 
         <Box className="MuiBox-root mui-h5fkc8">
           <Typography
             variant="h4"
             className="MuiTypography-root MuiTypography-h4 mui-1wvuldu"
-            style={{ marginRight: "100px" }}
+            style={{ marginRight: "185px" }}
           >
             ? When should this listing expire
           </Typography>

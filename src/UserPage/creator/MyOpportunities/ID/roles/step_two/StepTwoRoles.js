@@ -328,7 +328,7 @@ const StepTwoRoles = () => {
                   }
                 />
               </div>
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-4" style={{direction:"start"}}>
                 <button className="save" href={"/creator"}>
                   Save For Later
                 </button>
@@ -338,16 +338,6 @@ const StepTwoRoles = () => {
                     {/* <Loading buttonContent="Continue" /> */}
                   </div>
                 ) : (
-                  //   <button
-                  //     onClick={handleContinueToStepThree}
-                  //     className="border-2 border-blue-700 bg-blue-700 rounded-md text-lg text-white px-4 py-1 font-semibold hover-bg-blue-600 duration-200"
-                  //   >
-                  //     {formData.citizenship !== "" ? (
-                  //       "Continue"
-                  //     ) : (
-                  //       "Continue"
-                  //     )}
-                  //   </button>
                   <button
                     onClick={handleSubmit}
                     className="border-2 border-blue-700 bg-blue-700 rounded-md text-lg text-white px-4 py-1 font-semibold hover:bg-blue-600 duration-200"

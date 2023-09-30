@@ -1,14 +1,14 @@
 h4.MuiTypography-root.MuiTypography-h4.MuiTypography-root.MuiTypography-h4.mui-1wvuldu.css-5lbw0b-MuiTypography-root {
-  margin-right: 225px;
-  font-size: 1.3rem;
-  font-family: "Segoe UI", Helvetica, Tahoma, Geneva, Verdana, Arial, sans-serif;
-  font-weight: 400;
-  /* line-height: 1.3; */
+  margin-right: 294px;
   color: #262e3b;
   text-align: center;
+  font-size: 1rem;
+  font-family: "Segoe UI", Helvetica, Tahoma, Geneva, Verdana, Arial, sans-serif;
+  font-weight: 400;
+  line-height: 1.3;
 }
 p.MuiTypography-root.MuiTypography-body1.MuiTypography-root.MuiTypography-body1.mui-1wvuldu.css-ahj2mt-MuiTypography-root {
-  margin-right: 235px;
+  margin-right: 275px;
   font-size: 1.2rem;
   font-family: "Segoe UI", Helvetica, Tahoma, Geneva, Verdana, Arial, sans-serif;
   font-weight: 400;
@@ -39,7 +39,7 @@ th.MuiTableCell-root.MuiTableCell-head.MuiTableCell-sizeMedium.MuiTableCell-root
   line-height: 1.3;
 }
 .MuiBox-root.mui-1hnm6b6.MuiBox-root.css-0 {
-  margin-top: 48px;
+  margin-top: 35px;
 }
 .MuiBox-root.mui-h5fkc8.MuiBox-root.css-0 {
   margin-top: 32px;
@@ -49,15 +49,9 @@ th.MuiTableCell-root.MuiTableCell-head.MuiTableCell-sizeMedium.MuiTableCell-root
   text-align: -webkit-center;
 }
 .tag {
-  margin-top: 10px;
-  text-align: center;
+  width: -moz-fit-content;
   width: fit-content;
-  display: flex;
-  align-items: center;
   margin-right: 455px;
-  border-bottom: 2px solid #999;
-  white-space: nowrap;
-  color: #000;
 }
 .css-1x51dt5-MuiInputBase-input-MuiInput-input.Mui-disabled {
   opacity: 1;

@@ -315,15 +315,7 @@ function StepOneRoles() {
                 label="This is a firm requirement"
               />
             </div>
-
-            {/* <button
-              onClick={handleContinue}
-              className="text-white bg-blue-600 p-2 mt-10 text-xl rounded-md sm:w-[400px] mx-auto"
-              style={{ marginRight: "0px" }}
-            >
-              Continue
-            </button> */}
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4" style={{direction:"start"}}>
               <button className="save" href={"/creator"}>
                 Save For Later
               </button>

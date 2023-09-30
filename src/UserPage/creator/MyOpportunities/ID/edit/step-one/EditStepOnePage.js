@@ -106,6 +106,7 @@ const EditStepOnePage = () => {
           }}
         >
           <p className="StepOne">Posting an Opportunity</p>
+          <div className="Stepone">
           <div>
             <TextField
               value={formData.title}
@@ -255,6 +256,7 @@ const EditStepOnePage = () => {
               {hasErrors() && "This field is required."}
             </p>
           </div>
+        </div>
         </div>
       )}
     </div>

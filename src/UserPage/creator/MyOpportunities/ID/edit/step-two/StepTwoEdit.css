@@ -30,6 +30,7 @@ button.hover\:bg-blue-50.duration-200.text-gray-500.rounded-full.text-3xl {
   min-width: 40%;
   direction: inherit;
   margin-right: 23%;
+  margin-top: -25px;
 }
 p.text-xl.p-4 {
   border-bottom: 1px solid rgb(242, 245, 248);
@@ -98,6 +99,6 @@ button.continuo {
   background-color: rgb(99, 113, 224);
   margin: 30px 0px 0px 0px;
 }
-/* .MuiFormControl-root.MuiTextField-root.css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
-  margin-top: -30px;
-} */
+.AdapterDay {
+  margin-top: -40px;
+}

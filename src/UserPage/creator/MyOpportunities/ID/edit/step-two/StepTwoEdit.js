@@ -13,7 +13,13 @@ import Summary from "../summary/Summary";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
-
+import {
+  Table,
+  TableHead,
+  TableRow,
+  TableCell,
+  TableBody,
+} from "@mui/material";
 const StepTwoEdit = () => {
   const currentDate = dayjs();
   const [myRoles, setMyRoles] = useState([]);
@@ -168,8 +174,32 @@ const StepTwoEdit = () => {
             </div>
 
             <div className="h-[200px] rounded-lg my-5 w-ful bg-white border-2 overflow-y-auto border-blue-100">
-              <p className="text-xl p-4">Role Name</p>
-
+              <Table className="MuiTable-root mui-16z4ktv">
+                <TableHead className="MuiTableHead-root mui-1wbz3t9">
+                  <TableRow className="MuiTableRow-root MuiTableRow-head mui-qfypx2">
+                    <TableCell
+                      className="MuiTableCell-root MuiTableCell-head MuiTableCell-sizeMedium mui-vyyw5x"
+                      scope="col"
+                    >
+                      Role Name
+                    </TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody className="MuiTableBody-root mui-1xnox0e">
+                  <TableRow className="MuiTableRow-root mui-9jehzt">
+                    <TableCell className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium mui-1p7duky"></TableCell>
+                  </TableRow>
+                  <TableRow className="MuiTableRow-root mui-9jehzt">
+                    <TableCell className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium mui-1p7duky"></TableCell>
+                  </TableRow>
+                  <TableRow className="MuiTableRow-root mui-9jehzt">
+                    <TableCell className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium mui-1p7duky"></TableCell>
+                  </TableRow>
+                  <TableRow className="MuiTableRow-root mui-9jehzt">
+                    <TableCell className="MuiTableCell-root MuiTableCell-body MuiTableCell-sizeMedium mui-1p7duky"></TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
               {myRoles.map((item, index) => (
                 <div
                   key={index}
@@ -210,32 +240,27 @@ const StepTwoEdit = () => {
               <label className="block text-xl mb-2" htmlFor="expirationDate">
                 ?When should this listing expire
               </label>
-
-              <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DatePicker />
-              </LocalizationProvider>
+              <div className="AdapterDay">
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <DatePicker />
+                </LocalizationProvider>
+              </div>
             </div>
 
-            <div className="flex items-center gap-4">
+            <div className="flex gap-5 mb-11">
               <button className="save" href={"/creator"}>
                 Save For Later
               </button>
-
               <> ︎ ︎ ︎</>
-              <Button
+
+              <button
                 onClick={handleSubmit}
                 variant="contained"
                 color="primary"
                 className="continuo"
               >
-                {expirationDate ? (
-                  <div href={`/creator/opportunities/edit/summary`}>
-                    Continue
-                  </div>
-                ) : (
-                  "Continue"
-                )}
-              </Button>
+                Continue
+              </button>
             </div>
           </div>
         </>
