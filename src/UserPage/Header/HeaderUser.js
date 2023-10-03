@@ -55,7 +55,10 @@ function HeaderUser() {
   const [activeIcon, setActiveIcon] = useState(null);
   const [menuAnchorEl, setMenuAnchorEl] = useState(null);
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
-
+  const [isEditStepOnePage, setIsEditStepOnePage] = useState(false);
+  const handleComponentVisibility = (isVisible) => {
+    setIsEditStepOnePage(isVisible);
+  };
   const handleMenuClose = () => {
     navigate.push('https://www.castingarabia.com/auth/login');
   };
@@ -183,8 +186,8 @@ function HeaderUser() {
         <>
           {/* <Opportunities /> */}
           <MyOpportunities />
-          <News />
-          <LearningCenter />
+          {/* <News />
+          <LearningCenter /> */}
         </>
       )}
     </>

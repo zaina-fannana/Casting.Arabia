@@ -6,7 +6,6 @@ import Chip from "@mui/material/Chip";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
-import DialogTitle from "@mui/material/DialogTitle";
 import axios from "axios";
 import StepFourRoles from "../step_four/StepFourRoles";
 import "dayjs/locale/en";
@@ -16,8 +15,7 @@ import { DemoContainer, DemoItem } from "@mui/x-date-pickers/internals/demo";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { DateRangePicker } from "@mui/x-date-pickers-pro/DateRangePicker";
-import { MobileDatePicker } from "@mui/x-date-pickers/MobileDatePicker";
-
+import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 
 const StepThreeRoles = () => {
   const currentDate = dayjs();
@@ -73,7 +71,14 @@ const StepThreeRoles = () => {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
+
+    if (name === "description" && !value.trim()) {
+      setErrors({ ...errors, description: "This field is required" });
+    } else {
+      setErrors({ ...errors, description: "" });
+    }
   };
+
   const handleDateChange = (e) => {
     const startDate = dayjs(e[0]);
     const endDate = dayjs(e[1]);
@@ -189,9 +194,9 @@ const StepThreeRoles = () => {
                     direction: "initial",
                   }}
                 />
-                <p className="text-sm  text-red-500  p-2 inline-block ">
-                  {errors.description && errors.description}
-                </p>
+                {errors.description && (
+                  <p className="text-red-500">{errors.description}</p>
+                )}
               </div>
 
               <div className="mb-5">
@@ -201,9 +206,6 @@ const StepThreeRoles = () => {
                   label="Filming City"
                   name="location"
                 />
-                <p className="text-sm  text-red-500  p-2 inline-block ">
-                  {errors.location && errors.location}
-                </p>
               </div>
 
               <div className="flex justify-between items-center mb-10">
@@ -215,36 +217,19 @@ const StepThreeRoles = () => {
                     </p>{" "}
                   </button>
                   <Dialog open={open} onClose={handleClose}>
-                    <DialogTitle className="text-md">SELECT DATE</DialogTitle>
                     <DialogContent className=" sm:w-[370px] md:w-[400px]">
                       <div>
                         <LocalizationProvider dateAdapter={AdapterDayjs}>
-                          <DemoContainer
-                            components={[
-                              "DatePicker",
-                              "MobileDatePicker",
-                              "DesktopDatePicker",
-                              "StaticDatePicker",
-                            ]}
-                          >
-                            <DemoItem label="SELECT DATE">
-                              <MobileDatePicker
-                                defaultValue={dayjs("2022-04-17")}
-                              />
-                            </DemoItem>
-                          </DemoContainer>
-                          <button className="text-3xl hover:bg-blue-50 duration-200 rounded-full p-2">
-                            <BiSolidPencil />
-                            {""}
-                          </button>
+                          <DemoItem label="SELECT DATE">
+                            <DemoContainer components={["DatePicker"]}>
+                              <DatePicker label="Basic date picker" />
+                            </DemoContainer>
+                          </DemoItem>
                         </LocalizationProvider>
                       </div>
                     </DialogContent>
                     <DialogActions>
-                      <button
-                        onClick={handleDateSubmit}
-                        className="border-blue-600 rounded-lg text-xl  text-blue-600 border-2 hover:bg-blue-50 duration-200 hover:!border-blue-500 h-10 w-24 font-semibold"
-                      >
+                      <button onClick={handleDateSubmit} className="Submit">
                         Submit
                       </button>
                     </DialogActions>

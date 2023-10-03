@@ -1,112 +1,61 @@
 import React, { useEffect, useState } from "react";
-import { TextField } from "@mui/material";
+import {
+  FormControl,
+  Select,
+  MenuItem,
+  TextField,
+  NativeSelect,
+  Input,
+  InputAdornment,
+} from "@mui/material";
 import axios from "axios";
 import Box from "@mui/material/Box";
-import FormControl from "@mui/material/FormControl";
-import NativeSelect from "@mui/material/NativeSelect";
-
+import "./StepFourRoles.css";
 const StepFourRoles = () => {
-  const [errors, setErrors] = useState({});
-  const [data, setData] = useState();
-  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     isCompleted: false,
     isPaid: false,
-    mediaRequired: { characteristics: false, skills: false },
-    paidRate: "2",
-    paidType: "hourly",
+    mediaRequired: {
+      characteristics: "",
+      skills: "",
+    },
+    paidRate: "",
+    paidType: "",
   });
 
-  useEffect(
-    () => {
-      (async () => {
-        if ("") {
-          try {
-            const token = localStorage.getItem("token");
-            const res = await axios.get(
-              `http://casting-ec2-1307338951.us-east-2.elb.amazonaws.com:7001/opportunities/roles/`,
-              {
-                headers: {
-                  Authorization: `Bearer ${token}`,
-                },
-              }
-            );
+  const [isLoading, setIsLoading] = useState(false);
 
-            if (res) {
-              setData(res.data);
-            }
-          } catch (error) {}
-        }
-      })();
-    }
-    //   [router.query.id, router.query.id2]
-  );
-
-  useEffect(() => {
-    if (data) {
-      setFormData({
-        isCompleted: data.isCompleted,
-        isPaid: data.isPaid,
-        mediaRequired: {
-          characteristics: data.mediaRequired.characteristics,
-          skills: data.mediaRequired.skills,
-        },
-        paidRate: data.paidRate,
-        paidType: data.paidType,
-      });
-    }
-  }, [data]);
-
-  const handleInputChange = (e) => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
 
-    if (name === "isPaid") {
-      value === "Paid"
-        ? setFormData({ ...formData, isPaid: true, isCompleted: true })
-        : setFormData({ ...formData, isPaid: false, isCompleted: true });
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    const token = localStorage.getItem("token");
+    try {
+      const res = await axios.put(
+        `http://casting-ec2-1307338951.us-east-2.elb.amazonaws.com:7001/opportunities/roles/`,
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      if (res) {
+        setIsLoading(true);
+      }
+    } catch (error) {
+      console.error(error);
     }
   };
-
-  const handleSubmit = (event) => {
-    const token = localStorage.getItem("token");
-    event.preventDefault();
-    // schema
-    //   .validate(formData, { abortEarly: false })
-    //   .then(() => {
-    //     console.log("Form data is valid:", formData);
-    //   })
-    //   .catch((validationErrors) => {
-    //     const Errors = {};
-    //     validationErrors.inner.forEach((error) => {
-    //       Errors[error.path] = error.message;
-    //     });
-    //     setErrors(Errors);
-    //   });
-
-    (async () => {
-      try {
-        const res = await axios.put(
-          `http://casting-ec2-1307338951.us-east-2.elb.amazonaws.com:7001/opportunities/roles/`,
-          formData,
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-        if (res) {
-          setIsLoading(true);
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    })();
-  };
-
   return (
     <>
-      <div className="mt-12 mb-[133px] h-[400px] ">
+      <div className="mt-12 mb-[133px] h-[400px]">
         <p
           className="text-3xl text-blue-600 font-semibold sm:w-[500px] mx-auto mb-10 mr:[700px]"
           style={{ marginRight: "200px" }}
@@ -120,49 +69,95 @@ const StepFourRoles = () => {
               <Box sx={{ minWidth: 120, lineHeight: 5 }}>
                 <FormControl fullWidth style={{ direction: "initial" }}>
                   <NativeSelect
-                    defaultValue={30}
-                    inputProps={{
-                      name: "Compensation & Contract Details",
+                    value={formData.isPaid ? "Paid" : "Unpaid"}
+                    onChange={(e) => {
+                      setFormData((prevData) => ({
+                        ...prevData,
+                        isPaid: e.target.value === "Paid",
+                      }));
                     }}
                   >
-                    <option> ︎</option>
-                    <option>Paid</option>
-                    <option>Unpaid</option>
+                    <option value="Unpaid">Unpaid</option>
+                    <option value="Paid">Paid</option>
                   </NativeSelect>
                 </FormControl>
               </Box>
             </div>
-
-            <p className="text-sm  text-red-500  p-2 inline-block ">
-              {errors.isPaid && errors.isPaid}
-            </p>
           </div>
 
+          {formData.isPaid && (
+            <div className="MuiBox-root mui-1yuhvjn">
+              <div className="MuiFormControl-root MuiTextField-root mui-mehm24">
+                <label
+                  htmlFor="paidType"
+                  className="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeSmall MuiInputLabel-standard MuiFormLabel-root MuiFormLabel-colorPrimary MuiFormLabel-filled mui-59uj5m"
+                >
+                  Period
+                </label>
+                <FormControl
+                  variant="standard"
+                  className="MuiInput-root MuiInput-underline MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall mui-1qmr4gc"
+                >
+                  <Select
+                    labelId="paidType-label"
+                    id="paidType"
+                    name="paidType"
+                    value={formData.paidType}
+                    onChange={handleChange}
+                    className="MuiInput-input MuiInputBase-input MuiInputBase-inputSizeSmall mui-qq14pi"
+                  >
+                    <MenuItem value="Weekly">Weekly</MenuItem>
+                    <MenuItem value="Monthly">Monthly</MenuItem>
+                    <MenuItem value="Yearly">Yearly</MenuItem>
+                  </Select>
+                </FormControl>
+              </div>
+              <div className="MuiFormControl-root MuiTextField-root mui-w0p51q">
+                <label
+                  htmlFor="paidRate"
+                  className="MuiInputLabel-root MuiInputLabel-formControl MuiInputLabel-animated MuiInputLabel-shrink MuiInputLabel-sizeSmall MuiInputLabel-standard MuiFormLabel-root MuiFormLabel-colorPrimary MuiFormLabel-filled mui-59uj5m"
+                  style={{ marginLeft: "20px" }}
+                >
+                  Rate
+                </label>
+                <> ︎ ︎ ︎</>
+
+                <FormControl className="MuiInput-root MuiInput-underline MuiInputBase-root MuiInputBase-colorPrimary MuiInputBase-formControl MuiInputBase-sizeSmall mui-1qmr4gc">
+                  <Input
+                    id="paidRate"
+                    name="paidRate"
+                    type="number"
+                    value={formData.paidRate}
+                    onChange={handleChange}
+                    placeholder="0.00"
+                    startAdornment={
+                      <InputAdornment position="start">$</InputAdornment>
+                    }
+                    className="MuiInput-input MuiInputBase-input MuiInputBase-inputSizeSmall MuiInputBase-inputAdornedStart mui-2duac4"
+                  />
+                </FormControl>
+              </div>
+            </div>
+          )}
+
           <div className="flex items-center gap-4">
-            <button className="save" href={"/creator"}>
+            <button
+              className="save"
+              onClick={() => (window.location.href = "/creator")}
+            >
               Save For Later
             </button>
             <> ︎ ︎ ︎</>
 
-            {isLoading &&
-            (formData.isPaid === false ||
-              (formData.paidType && formData.paidRate) !== "") ? (
-              <div className="border-2 border-blue-700 bg-blue-700 rounded-md text-lg text-white px-4 py-1 font-semibold hover:bg-blue-600 duration-200">
-                {/* <Loading buttonContent="Save" /> */}
-              </div>
-            ) : (
-              <button
-                onClick={handleSubmit}
-                className="border-2 border-blue-700 bg-blue-700 rounded-md text-lg text-white px-4 py-1 font-semibold hover:bg-blue-600 duration-200"
-              >
-                {formData.isPaid === false ||
-                (formData.paidType && formData.paidRate) !== "" ? (
-                  <a href={`/creator/opportunities/edit/step-two`}>Save</a>
-                ) : (
-                  "Save"
-                )}
-              </button>
-            )}
+            <button
+              onClick={handleSubmit}
+              className="border-2 border-blue-700 bg-blue-700 rounded-md text-lg text-white px-4 py-1 font-semibold hover:bg-blue-600 duration-200"
+              disabled={
+                !formData.isPaid || !(formData.paidType && formData.paidRate)
+              }
+            >
+              Save
+            </button>
           </div>
         </div>
       </div>

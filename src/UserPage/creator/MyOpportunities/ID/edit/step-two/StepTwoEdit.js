@@ -26,6 +26,7 @@ const StepTwoEdit = () => {
   const [expirationDate, setExpirationDate] = useState(null);
   const [showStepOne, setShowStepOne] = useState(false);
   const [showSummary, setShowSummary] = useState(false);
+  const [errors, setErrors] = useState({});
 
   const handleShowStepOne = () => {
     setShowStepOne(true);
@@ -50,6 +51,13 @@ const StepTwoEdit = () => {
   const handleSubmit = (event) => {
     const token = localStorage.getItem("token");
     event.preventDefault();
+
+    if (!expirationDate) {
+      setErrors({ expirationDate: "Please enter a valid expiration date" });
+      return;
+    } else {
+      setErrors({});
+    }
 
     setShowSummary(true);
   };
@@ -242,9 +250,19 @@ const StepTwoEdit = () => {
               </label>
               <div className="AdapterDay">
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <DatePicker />
+                  <DatePicker
+                    value={expirationDate}
+                    onChange={(date) => setExpirationDate(date)}
+                    style={{
+                      width: "100%",
+                      borderColor: errors.expirationDate ? "red" : "",
+                    }}
+                  />
                 </LocalizationProvider>
               </div>
+              {errors.expirationDate && (
+                <p className="text-red-500">{errors.expirationDate}</p>
+              )}
             </div>
 
             <div className="flex gap-5 mb-11">

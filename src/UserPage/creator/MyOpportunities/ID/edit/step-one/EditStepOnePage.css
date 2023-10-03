@@ -17,6 +17,7 @@ button.save {
   border: 2px solid rgba(99, 113, 224, 0.5);
   color: rgb(99, 113, 224);
   margin: 30px 0px 0px 0px;
+  cursor: pointer;
 }
 button.border-2.border-blue-700.bg-blue-700.rounded-md.text-lg.text-white.px-4.py-1.font-semibold.hover\:bg-blue-600.duration-200 {
   border: 0px;
@@ -29,6 +30,7 @@ button.border-2.border-blue-700.bg-blue-700.rounded-md.text-lg.text-white.px-4.p
   color: rgb(255, 255, 255);
   background-color: rgb(99, 113, 224);
   margin: 30px 0px 0px 0px;
+  cursor: pointer;
 }
 .Stepone {
   /* text-align: center; */
@@ -37,6 +39,9 @@ button.border-2.border-blue-700.bg-blue-700.rounded-md.text-lg.text-white.px-4.p
 .ant-form-item-control-input-content {
   text-align: end;
 }
-/* .flex.items-center.gap-4 {
-  text-align: end;
-} */
+p.text-red-500 {
+  color: red;
+  font-family: "Segoe UI", Helvetica, Tahoma, Geneva, Verdana, Arial, sans-serif;
+  font-weight: 400;
+  margin: 3px 0px 0px;
+}

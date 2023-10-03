@@ -1,0 +1,21 @@
+label.MuiInputLabel-root.MuiInputLabel-formControl.MuiInputLabel-animated.MuiInputLabel-shrink.MuiInputLabel-sizeSmall.MuiInputLabel-standard.MuiFormLabel-root.MuiFormLabel-colorPrimary.MuiFormLabel-filled.mui-59uj5m {
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 1.3rem;
+  font-family: "Segoe UI", Helvetica, Tahoma, Geneva, Verdana, Arial, sans-serif;
+  font-weight: 400;
+  padding: 0px;
+  display: block;
+  transform-origin: left top;
+  transform: translate(0px, -1.5px) scale(0.75);
+  text-align: initial;
+}
+.MuiBox-root.mui-1yuhvjn {
+  display: flex;
+  direction: initial;
+}
+.MuiFormControl-root.MuiTextField-root.MuiInput-input.MuiInputBase-input.MuiInputBase-inputSizeSmall.MuiInputBase-inputAdornedStart.mui-2duac4.css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
+    margin-left: 20px;
+}
+.MuiInputBase-root.MuiInput-root.MuiInput-underline.MuiInputBase-colorPrimary.MuiInputBase-formControl.MuiInputBase-adornedStart.MuiInput-input.MuiInputBase-input.MuiInputBase-inputSizeSmall.MuiInputBase-inputAdornedStart.mui-2duac4.css-v4u5dn-MuiInputBase-root-MuiInput-root {
+    margin-left: 10px;
+}

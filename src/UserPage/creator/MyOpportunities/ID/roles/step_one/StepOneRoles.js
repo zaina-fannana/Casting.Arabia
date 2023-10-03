@@ -69,12 +69,26 @@ function StepOneRoles() {
     }
   }, [data]);
 
+  // const handleInputChange = (e) => {
+  //   const { name, value } = e.target;
+  //   setFormData({
+  //     ...formData,
+  //     [name]: value,
+  //   });
+  // };
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
       [name]: value,
     });
+
+    // Validate Role Name
+    if (name === "name" && !value.trim()) {
+      setErrors({ ...errors, name: "Role Name is a required field" });
+    } else {
+      setErrors({ ...errors, name: "" });
+    }
   };
 
   const handleCheckChange = (e) => {
@@ -147,6 +161,17 @@ function StepOneRoles() {
             Role Details
           </p>
           <div className="flex flex-col sm:w-[500px] mx-auto gap-3">
+            {/* <div sx={{ minWidth: 120, lineHeight: 5 }}>
+              <TextField
+                value={formData.name}
+                onChange={handleInputChange}
+                name="name"
+                label="Role Name"
+                placeholder="Name"
+                className="sm:w-[600px]"
+                fullWidth
+              />
+            </div> */}
             <div sx={{ minWidth: 120, lineHeight: 5 }}>
               <TextField
                 value={formData.name}
@@ -157,9 +182,7 @@ function StepOneRoles() {
                 className="sm:w-[600px]"
                 fullWidth
               />
-              <p className="text-sm  text-red-500  p-2 inline-block ">
-                {errors.name && errors.name}
-              </p>
+              {errors.name && <p className="text-red-500">{errors.name}</p>}
             </div>
 
             <div>
@@ -201,9 +224,6 @@ function StepOneRoles() {
                   label="Other Talent Type"
                   className="sm:w-[500px] mt-5"
                 />
-                <p className="text-sm  text-red-500  p-2 inline-block ">
-                  {errors.otherTalentType && errors.otherTalentType}
-                </p>
               </div>
             ) : null}
 
@@ -240,9 +260,6 @@ function StepOneRoles() {
                   label="Other Role Type"
                   className="sm:w-[500px] mt-5"
                 />
-                <p className="text-sm  text-red-500  p-2 inline-block ">
-                  {errors.otherRoleType && errors.otherRoleType}
-                </p>
               </div>
             ) : null}
 
@@ -302,20 +319,10 @@ function StepOneRoles() {
                 label="This is a firm requirement"
               />
             </div>
-
-            <div className="mt-5">
-              <FormControlLabel
-                control={
-                  <Checkbox
-                    checked={formData.isAcceptingTapedAudition}
-                    onChange={handleCheckChange}
-                    name="This is a firm requirement"
-                  />
-                }
-                label="This is a firm requirement"
-              />
-            </div>
-            <div className="flex items-center gap-4" style={{direction:"start"}}>
+            <div
+              className="flex items-center gap-4"
+              style={{ direction: "start" }}
+            >
               <button className="save" href={"/creator"}>
                 Save For Later
               </button>

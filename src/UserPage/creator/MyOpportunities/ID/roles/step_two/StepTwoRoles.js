@@ -348,6 +348,7 @@ const StepTwoRoles = () => {
                         border: "#6371e0",
                         color: "#fff",
                         fontSize: "inherit",
+                        cursor: "pointer",
                       }}
                       href={`/creator/opportunities/roles//edit/step-three`}
                     >

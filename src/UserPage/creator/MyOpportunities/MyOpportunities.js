@@ -17,6 +17,27 @@ export default function App() {
   const MyOpportunities = OpportunitiesData;
 
   const handleNewButtonClick = () => {
+    const apiUrl = "https://api.castingarabia.com/opportunities";
+    const requestData = {};
+
+    fetch(apiUrl, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(requestData),
+    })
+      .then((response) => {
+        if (response.status === 201) {
+          console.log("API call successful");
+        } else {
+          console.error("API call failed");
+        }
+      })
+      .catch((error) => {
+        console.error("Error occurred during API call:", error);
+      });
+
     window.open("/creator/opportunities/1831/edit/step-one", "_self");
     setIsNewButtonClicked(true);
   };
@@ -32,11 +53,7 @@ export default function App() {
               My Opportunities
             </h2>
             <button className="new" onClick={handleNewButtonClick}>
-              <p
-              // className="font-semibold text-xl text-blue-600 border-2 border-blue-600 rounded-md px-5 py-2 hover:bg-blue-100 duration-200"
-              >
-                New
-              </p>
+              <p>New</p>
             </button>
           </div>
 
@@ -68,11 +85,7 @@ export default function App() {
                       >
                         {opportunity.title}
                       </Typography>
-                      {/* <Typography variant="body2" color="text.secondary" dir="ltr">
-                      {opportunity.description}
-                    </Typography> */}
                     </CardContent>
-                    {/* <OpportunitiesPage /> */}
                   </Card>
                 </SwiperSlide>
               ))}
